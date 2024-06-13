@@ -14,11 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        
-        // test ControlUser Helper
-        print(ControlUser.isSavedUser)
-        print(ControlUser.deleteUser)
-        print(ControlUser.isSavedUser)
+                
     }
     
 }

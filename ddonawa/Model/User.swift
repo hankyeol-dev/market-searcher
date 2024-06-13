@@ -12,7 +12,14 @@ struct User: Codable {
     private var nickname: String
     private var image: String
     private var liked: [Product]
-
+    private static var key = "user"
+    
+    init(nickname: String, image: String, liked: [Product] = []) {
+        self.nickname = nickname
+        self.image = image
+        self.liked = liked
+    }
+    
     var getOrChangeNick: String {
         get {
             return self.nickname
@@ -39,6 +46,26 @@ struct User: Codable {
         }
     }
     
+    static var isSavedUser: Bool {
+        return UserDefaults.standard.object(forKey: User.key) != nil
+    }
+    
+    static var getOrSaveUser: User {
+        get {
+            return try! JSONDecoder().decode(User.self, from: UserDefaults.standard.object(forKey: User.key) as! Data)
+        }
+        
+        set {
+            if let data = try? JSONEncoder().encode(newValue as User) {
+                UserDefaults.standard.setValue(data, forKey: User.key)
+            }
+        }
+    }
+    
+    static var deleteUser: Void {
+        UserDefaults.standard.removeObject(forKey: User.key)
+    }
+    
     mutating func addLiked(_ product: Product) {
         self.liked.append(product)
     }
@@ -46,10 +73,5 @@ struct User: Codable {
     mutating func deleteLiked(_ productId: String) {
         self.liked = _filter(self.liked, { $0.productId != productId })
     }
-    
-    init(nickname: String, image: String, liked: [Product]) {
-        self.nickname = nickname
-        self.image = image
-        self.liked = liked
-    }
+
 }
