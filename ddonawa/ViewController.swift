@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .systemBackground
+        
+        // test ControlUser Helper
+        print(ControlUser.isSavedUser)
+        print(ControlUser.deleteUser)
+        print(ControlUser.isSavedUser)
     }
-
-
+    
 }
 

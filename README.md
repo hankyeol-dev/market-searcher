@@ -12,7 +12,15 @@
     
     - [x] iOS 타겟: `iOS15+ / IPhone Portrait Only`
     - [x] 파일 세팅: Launch Screen을 제외한 모든 파일은 코드베이스의 Swift 파일로 구성
-    - [ ] API: 네이버 쇼핑 검색 오픈 API
+    - [x] API: 네이버 쇼핑 검색 오픈 API
+    
+    ### 0. 모델링 & 유틸리티 함수 작성
+    - [x] User
+    - [x] Product
+    - [x] for UserDefaults Controller
+    - [ ] for API mapping
+    - [ ] for Array
+    - [ ] for API Networking
     
     ### 1. 온보딩 페이지 - 프로필 세팅
     
