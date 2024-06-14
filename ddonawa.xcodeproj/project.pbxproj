@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		815E64F62C1AD433000185D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E64F52C1AD433000185D7 /* AppDelegate.swift */; };
 		815E64F82C1AD433000185D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E64F72C1AD433000185D7 /* SceneDelegate.swift */; };
-		815E64FA2C1AD433000185D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E64F92C1AD433000185D7 /* ViewController.swift */; };
+		815E64FA2C1AD433000185D7 /* VCSettingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E64F92C1AD433000185D7 /* VCSettingProfile.swift */; };
 		815E64FF2C1AD434000185D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 815E64FE2C1AD434000185D7 /* Assets.xcassets */; };
 		815E65022C1AD434000185D7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 815E65012C1AD434000185D7 /* Base */; };
 		815E650A2C1AD4E5000185D7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 815E65092C1AD4E5000185D7 /* .gitignore */; };
@@ -19,14 +19,30 @@
 		815E651A2C1AEABC000185D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65192C1AEABC000185D7 /* User.swift */; };
 		815E651D2C1AF3CB000185D7 /* forArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E651C2C1AF3CB000185D7 /* forArray.swift */; };
 		815E651F2C1AF5CA000185D7 /* forAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E651E2C1AF5CA000185D7 /* forAPI.swift */; };
-		815E65212C1AFB38000185D7 /* forUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65202C1AFB38000185D7 /* forUserDefaults.swift */; };
+		815E65232C1B2CA3000185D7 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65222C1B2CA3000185D7 /* UI.swift */; };
+		815E65262C1B2D2D000185D7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 815E65252C1B2D2D000185D7 /* SnapKit */; };
+		815E65292C1B2D39000185D7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 815E65282C1B2D39000185D7 /* Kingfisher */; };
+		815E652B2C1B36E2000185D7 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E652A2C1B36E2000185D7 /* Icons.swift */; };
+		815E652D2C1B36F5000185D7 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E652C2C1B36F5000185D7 /* Figure.swift */; };
+		815E652F2C1B37D6000185D7 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E652E2C1B37D6000185D7 /* Texts.swift */; };
+		815E65322C1B38E0000185D7 /* VCOnboardingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65312C1B38E0000185D7 /* VCOnboardingMain.swift */; };
+		815E65352C1B39AA000185D7 /* forVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65342C1B39AA000185D7 /* forVC.swift */; };
+		815E65382C1B3A6E000185D7 /* VButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65372C1B3A6E000185D7 /* VButton.swift */; };
+		815E653A2C1BC1A9000185D7 /* VLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65392C1BC1A9000185D7 /* VLogo.swift */; };
+		815E653C2C1BC488000185D7 /* VUnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E653B2C1BC488000185D7 /* VUnderlinedTextField.swift */; };
+		81DC84AE2C1BF0DF00730BAC /* VProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84AD2C1BF0DF00730BAC /* VProfile.swift */; };
+		81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */; };
+		81DC84B22C1BFEC300730BAC /* VButtonUpdateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84B12C1BFEC300730BAC /* VButtonUpdateImage.swift */; };
+		81DC84B42C1C078600730BAC /* forRandomValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84B32C1C078600730BAC /* forRandomValue.swift */; };
+		81DC84B62C1C1BD000730BAC /* VIndicatingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84B52C1C1BD000730BAC /* VIndicatingLabel.swift */; };
+		81DC84B92C1C27BE00730BAC /* VCSearchingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84B82C1C27BE00730BAC /* VCSearchingMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		815E64F22C1AD433000185D7 /* ddonawa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddonawa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		815E64F52C1AD433000185D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		815E64F72C1AD433000185D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		815E64F92C1AD433000185D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		815E64F92C1AD433000185D7 /* VCSettingProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSettingProfile.swift; sourceTree = "<group>"; };
 		815E64FE2C1AD434000185D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		815E65012C1AD434000185D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		815E65032C1AD434000185D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,7 +53,21 @@
 		815E65192C1AEABC000185D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		815E651C2C1AF3CB000185D7 /* forArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forArray.swift; sourceTree = "<group>"; };
 		815E651E2C1AF5CA000185D7 /* forAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forAPI.swift; sourceTree = "<group>"; };
-		815E65202C1AFB38000185D7 /* forUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forUserDefaults.swift; sourceTree = "<group>"; };
+		815E65222C1B2CA3000185D7 /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
+		815E652A2C1B36E2000185D7 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		815E652C2C1B36F5000185D7 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
+		815E652E2C1B37D6000185D7 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
+		815E65312C1B38E0000185D7 /* VCOnboardingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCOnboardingMain.swift; sourceTree = "<group>"; };
+		815E65342C1B39AA000185D7 /* forVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forVC.swift; sourceTree = "<group>"; };
+		815E65372C1B3A6E000185D7 /* VButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VButton.swift; sourceTree = "<group>"; };
+		815E65392C1BC1A9000185D7 /* VLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLogo.swift; sourceTree = "<group>"; };
+		815E653B2C1BC488000185D7 /* VUnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VUnderlinedTextField.swift; sourceTree = "<group>"; };
+		81DC84AD2C1BF0DF00730BAC /* VProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VProfile.swift; sourceTree = "<group>"; };
+		81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VProfileImage.swift; sourceTree = "<group>"; };
+		81DC84B12C1BFEC300730BAC /* VButtonUpdateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VButtonUpdateImage.swift; sourceTree = "<group>"; };
+		81DC84B32C1C078600730BAC /* forRandomValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forRandomValue.swift; sourceTree = "<group>"; };
+		81DC84B52C1C1BD000730BAC /* VIndicatingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIndicatingLabel.swift; sourceTree = "<group>"; };
+		81DC84B82C1C27BE00730BAC /* VCSearchingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSearchingMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				815E65292C1B2D39000185D7 /* Kingfisher in Frameworks */,
 				815E65182C1AEA31000185D7 /* Alamofire in Frameworks */,
+				815E65262C1B2D2D000185D7 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +111,6 @@
 				815E650C2C1AD510000185D7 /* Constants */,
 				815E64F52C1AD433000185D7 /* AppDelegate.swift */,
 				815E64F72C1AD433000185D7 /* SceneDelegate.swift */,
-				815E64F92C1AD433000185D7 /* ViewController.swift */,
 				815E64FE2C1AD434000185D7 /* Assets.xcassets */,
 				815E65002C1AD434000185D7 /* LaunchScreen.storyboard */,
 				815E650F2C1AD90F000185D7 /* ENV.swift */,
@@ -91,6 +122,10 @@
 		815E650C2C1AD510000185D7 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				815E65222C1B2CA3000185D7 /* UI.swift */,
+				815E652A2C1B36E2000185D7 /* Icons.swift */,
+				815E652C2C1B36F5000185D7 /* Figure.swift */,
+				815E652E2C1B37D6000185D7 /* Texts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -98,6 +133,7 @@
 		815E65112C1AE810000185D7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				815E65332C1B3993000185D7 /* extensions */,
 				815E651B2C1AF3B1000185D7 /* Helpers */,
 			);
 			path = Utils;
@@ -106,6 +142,9 @@
 		815E65122C1AE815000185D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				815E65362C1B3A3C000185D7 /* Reusable */,
+				815E65302C1B38A9000185D7 /* Onboarding */,
+				81DC84B72C1C279100730BAC /* Searching */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,9 +163,48 @@
 			children = (
 				815E651C2C1AF3CB000185D7 /* forArray.swift */,
 				815E651E2C1AF5CA000185D7 /* forAPI.swift */,
-				815E65202C1AFB38000185D7 /* forUserDefaults.swift */,
+				81DC84B32C1C078600730BAC /* forRandomValue.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		815E65302C1B38A9000185D7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				815E65312C1B38E0000185D7 /* VCOnboardingMain.swift */,
+				815E64F92C1AD433000185D7 /* VCSettingProfile.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		815E65332C1B3993000185D7 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				815E65342C1B39AA000185D7 /* forVC.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		815E65362C1B3A3C000185D7 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				815E65372C1B3A6E000185D7 /* VButton.swift */,
+				815E65392C1BC1A9000185D7 /* VLogo.swift */,
+				815E653B2C1BC488000185D7 /* VUnderlinedTextField.swift */,
+				81DC84AD2C1BF0DF00730BAC /* VProfile.swift */,
+				81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */,
+				81DC84B12C1BFEC300730BAC /* VButtonUpdateImage.swift */,
+				81DC84B52C1C1BD000730BAC /* VIndicatingLabel.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		81DC84B72C1C279100730BAC /* Searching */ = {
+			isa = PBXGroup;
+			children = (
+				81DC84B82C1C27BE00730BAC /* VCSearchingMain.swift */,
+			);
+			path = Searching;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +225,8 @@
 			name = ddonawa;
 			packageProductDependencies = (
 				815E65172C1AEA31000185D7 /* Alamofire */,
+				815E65252C1B2D2D000185D7 /* SnapKit */,
+				815E65282C1B2D39000185D7 /* Kingfisher */,
 			);
 			productName = ddonawa;
 			productReference = 815E64F22C1AD433000185D7 /* ddonawa.app */;
@@ -178,6 +258,8 @@
 			mainGroup = 815E64E92C1AD433000185D7;
 			packageReferences = (
 				815E65162C1AEA31000185D7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				815E65242C1B2D2D000185D7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				815E65272C1B2D39000185D7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 815E64F32C1AD433000185D7 /* Products */;
 			projectDirPath = "";
@@ -206,15 +288,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				815E64FA2C1AD433000185D7 /* ViewController.swift in Sources */,
+				815E653C2C1BC488000185D7 /* VUnderlinedTextField.swift in Sources */,
+				815E64FA2C1AD433000185D7 /* VCSettingProfile.swift in Sources */,
+				81DC84AE2C1BF0DF00730BAC /* VProfile.swift in Sources */,
+				81DC84B92C1C27BE00730BAC /* VCSearchingMain.swift in Sources */,
+				81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */,
 				815E65102C1AD90F000185D7 /* ENV.swift in Sources */,
+				815E65232C1B2CA3000185D7 /* UI.swift in Sources */,
+				815E65322C1B38E0000185D7 /* VCOnboardingMain.swift in Sources */,
+				81DC84B42C1C078600730BAC /* forRandomValue.swift in Sources */,
 				815E651D2C1AF3CB000185D7 /* forArray.swift in Sources */,
+				81DC84B62C1C1BD000730BAC /* VIndicatingLabel.swift in Sources */,
 				815E651A2C1AEABC000185D7 /* User.swift in Sources */,
+				815E652D2C1B36F5000185D7 /* Figure.swift in Sources */,
 				815E651F2C1AF5CA000185D7 /* forAPI.swift in Sources */,
-				815E65212C1AFB38000185D7 /* forUserDefaults.swift in Sources */,
+				815E65352C1B39AA000185D7 /* forVC.swift in Sources */,
 				815E65152C1AE831000185D7 /* Product.swift in Sources */,
 				815E64F62C1AD433000185D7 /* AppDelegate.swift in Sources */,
+				815E652B2C1B36E2000185D7 /* Icons.swift in Sources */,
+				81DC84B22C1BFEC300730BAC /* VButtonUpdateImage.swift in Sources */,
+				815E652F2C1B37D6000185D7 /* Texts.swift in Sources */,
+				815E653A2C1BC1A9000185D7 /* VLogo.swift in Sources */,
 				815E64F82C1AD433000185D7 /* SceneDelegate.swift in Sources */,
+				815E65382C1B3A6E000185D7 /* VButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +545,22 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		815E65242C1B2D2D000185D7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		815E65272C1B2D39000185D7 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -456,6 +568,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 815E65162C1AEA31000185D7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		815E65252C1B2D2D000185D7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 815E65242C1B2D2D000185D7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		815E65282C1B2D39000185D7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 815E65272C1B2D39000185D7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
