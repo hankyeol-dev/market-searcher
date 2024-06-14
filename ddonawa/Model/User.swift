@@ -10,11 +10,11 @@ import Foundation
 
 struct User: Codable {
     private var nickname: String
-    private var image: String
+    private var image: ProfileImage
     private var liked: [Product]
     private static var key = "user"
     
-    init(nickname: String, image: String, liked: [Product] = []) {
+    init(nickname: String, image: ProfileImage, liked: [Product] = []) {
         self.nickname = nickname
         self.image = image
         self.liked = liked
@@ -30,7 +30,7 @@ struct User: Codable {
         }
     }
     
-    var getOrChangeImage: String {
+    var getOrChangeImage: ProfileImage {
         get {
             return self.image
         }

@@ -9,7 +9,7 @@ import UIKit
 
 enum Figure {
     static let _border_sm = 1.0
-    static let _border_lg = 3.0
+    static let _border_lg = 4.5
     static let _opacity_none = 1.0
     static let _opacity_half = 0.5
     static let _profileImg_sm = 80.0

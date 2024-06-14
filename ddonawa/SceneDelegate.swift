@@ -16,7 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        print(User.isSavedUser)
         
         let entry = User.isSavedUser ? UINavigationController(rootViewController: VCSearchingMain()) : UINavigationController(rootViewController: VCOnboardingMain())
         

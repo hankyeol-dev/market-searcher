@@ -37,13 +37,27 @@ class VProfileImage: UIImageView {
     }
     
     func setBorder(_ viewState: ViewState) {
-        layer.borderColor = UIColor._main.cgColor
         switch viewState {
         case .modify:
+            layer.borderColor = UIColor._main.cgColor
             layer.borderWidth = Figure._border_lg
         case .noneModify:
+            layer.borderColor = UIColor._main.cgColor
             layer.borderWidth = Figure._border_sm
         }
     }
     
+    func setImage(_ image: ProfileImage) {
+        self.image = UIImage(named: image.sourceName)
+    }
+    
+    func isNotSelected() {
+        layer.borderColor = UIColor._gray_sm.cgColor
+        layer.borderWidth = Figure._border_sm
+    }
+    
+    func isSelected() {
+        layer.borderColor = UIColor._main.cgColor
+        layer.borderWidth = Figure._border_lg
+    }
 }

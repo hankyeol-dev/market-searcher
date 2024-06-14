@@ -15,9 +15,8 @@ enum ViewType {
 }
 
 class VProfile: UIView {
+    private lazy var selectedImageId = 0
     private var profileImage = VProfileImage(selectedImage: UIImage.profile10)
-    private let profileImageUpdateButton = VButtonUpdateImage()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,29 +26,36 @@ class VProfile: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(viewType: ViewType) {
+    convenience init(viewType: ViewType, isNeedToRandom: Bool, imageArray: [ProfileImage]?) {
         self.init(frame: .zero)
-        self.profileImage.image =  UIImage(named: getRandomElement(UIImage.profile.allCases).rawValue) ?? UIImage.profile0
+        
+        if isNeedToRandom {
+            guard let imageArray else { return }
+            let presentImage = getRandomElement(imageArray)
+            selectedImageId = presentImage.id
+            
+            profileImage.setImage(presentImage)
+        }
+        
         configureView(viewType)
     }
 }
 
 extension VProfile {
-    func configureView(_ viewType: ViewType) {
+    private func configureView(_ viewType: ViewType) {
         backgroundColor = .systemBackground
         addSubview(profileImage)
-
+        
         switch viewType {
         case .onlyProfileImage:
             onlyProfileImage()
         case .withProfileInfo:
             withProfileInfo()
         }
-
+        
     }
     
-    func onlyProfileImage() {
-        addSubview(profileImageUpdateButton)
+    private func onlyProfileImage() {
         
         profileImage.setSize(Figure._profileImg_lg)
         profileImage.setBorder(.modify)
@@ -59,17 +65,11 @@ extension VProfile {
             $0.center.equalToSuperview()
         }
         
-        profileImageUpdateButton.snp.makeConstraints {
-            $0.centerX.equalTo(profileImage.snp.trailing).inset(12)
-            $0.bottom.equalTo(profileImage.snp.bottom)
-            $0.size.equalTo(36)
-        }
-        
         profileImage.layer.borderColor = UIColor._main.cgColor
         profileImage.layer.borderWidth = Figure._border_lg
     }
     
-    func withProfileInfo() {
+    private func withProfileInfo() {
         profileImage.setSize(Figure._profileImg_sm)
         profileImage.setBorder(.noneModify)
         
@@ -81,7 +81,12 @@ extension VProfile {
         
     }
     
-    func setImage(_ imageName: UIImage.profile.RawValue) {
-        profileImage.image = UIImage(named: imageName)
+    func setImage(_ profileImage: ProfileImage) {
+        self.profileImage.image = UIImage(named: profileImage.sourceName)
     }
+    
+    func getPresentImage() -> Int {
+        return selectedImageId
+    }
+    
 }

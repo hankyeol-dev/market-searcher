@@ -16,6 +16,11 @@ extension UIViewController: ID {
         return String(describing: self)
     }
     
+    @objc
+    func goBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     func configureNav(navTitle: String, left: UIBarButtonItem?, right: UIBarButtonItem?) {
         title = navTitle
         
@@ -25,6 +30,16 @@ extension UIViewController: ID {
         if let right {
             navigationItem.rightBarButtonItem = right
         }
+    }
+    
+    func dismissViewStack(_ vc: UIViewController) {
+        let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = scene?.delegate as? SceneDelegate
+        
+        let window = sceneDelegate?.window
+        
+        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.makeKeyAndVisible()
     }
 }
 
