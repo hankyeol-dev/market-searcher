@@ -32,15 +32,14 @@ class VCSearchingMain: UIViewController {
             let user = User.getOrSaveUser
             
             if user.getRecentSearch.count == 0 {
-                print("넘어왔을 때 뜬다고!")
+                recentSearchMenu.isHidden = true
                 emptyRecentSearching()
             } else {
+                recentSearchMenu.isHidden = false
                 recentSearchList = user.getRecentSearch
                 configureTable()
                 recentSearchTable.reloadSections(IndexSet(integer: 0), with: .none)
             }
-            
-            
         }
     }
     
@@ -52,7 +51,7 @@ extension VCSearchingMain {
         let nickname = User.getOrSaveUser.getOrChangeNick
         configureNav(navTitle: "\(nickname) 님의 또나와", left: nil, right: nil)
     }
-    
+
     private func emptyRecentSearching() {
         view.addSubview(emptyImg)
         
@@ -91,7 +90,10 @@ extension VCSearchingMain: UISearchBarDelegate {
         if !text.isEmpty {
             // user update
             var user = User.getOrSaveUser
-            user.addRecentSearch(text)
+            
+            if !recentSearchList.contains(text) {
+                user.addRecentSearch(text)
+            }
             User.getOrSaveUser = user
             
             // 이동처리
@@ -177,7 +179,7 @@ extension VCSearchingMain: UITableViewDelegate, UITableViewDataSource {
         user.deleteAllRecentSearch()
         User.getOrSaveUser = user
         recentSearchTable.reloadSections(IndexSet(integer: 0), with: .none)
-        recentSearchMenu.isHidden = true
-        emptyRecentSearching()
+        
+        viewWillAppear(true)
     }
 }

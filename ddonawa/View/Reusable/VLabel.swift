@@ -30,11 +30,11 @@ class VLabel: UILabel {
         
         switch tType {
         case .impact:
-            font = ._mdBold
+            font = ._lgBold
         case .normal:
             font = ._md
         case .sub:
-            font = ._sm
+            font = ._xs
         }
     }
     

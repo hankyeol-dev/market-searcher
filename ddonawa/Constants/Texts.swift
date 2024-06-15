@@ -48,5 +48,6 @@ enum Texts: String {
     enum Menu: String {
         case RECENTSEARCHING = "최근 검색"
         case SETTING = "또나와 설정"
+        case SEARCHING_TOTAL_COUNTS = "개의 검색 결과"
     }
 }

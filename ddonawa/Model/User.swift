@@ -11,11 +11,11 @@ import Foundation
 struct User: Codable {
     private var nickname: String
     private var image: ProfileImage
-    private var liked: [Product]
+    private var liked: [ProductUserLiked]
     private var recentSearch: [String]
     private static var key = "user"
     
-    init(nickname: String, image: ProfileImage, liked: [Product] = [], recentSearch: [String] = []) {
+    init(nickname: String, image: ProfileImage, liked: [ProductUserLiked] = [], recentSearch: [String] = []) {
         self.nickname = nickname
         self.image = image
         self.liked = liked
@@ -42,7 +42,7 @@ struct User: Codable {
         }
     }
     
-    var getLiked: [Product] {
+    var getLiked: [ProductUserLiked] {
         return self.liked
     }
     
@@ -70,7 +70,11 @@ struct User: Codable {
         UserDefaults.standard.removeObject(forKey: User.key)
     }
     
-    mutating func addLiked(_ product: Product) {
+    mutating func isInLiked(_ productId: String) -> Bool {
+        return _filter(self.liked, { $0.productId == productId }).count != 0
+    }
+    
+    mutating func addLiked(_ product: ProductUserLiked) {
         self.liked.append(product)
     }
     

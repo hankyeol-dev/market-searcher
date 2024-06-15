@@ -6,8 +6,14 @@
 //
 
 import Foundation
+enum SortType: String {
+    case sim = "sim"
+    case date = "date"
+    case asc = "asc"
+    case dsc = "dsc"
+}
 
-func _mappingURL(_ queryString: [(String, String)]) -> String {
-    let endPoint = _map(queryString, { $0.0 + "=" + $0.1 + "&" }).joined()
-    return API.getBaseURL + endPoint
+func _mappingURL(query: String, start: Int, sort: SortType) -> String {
+    
+    return API.getBaseURL + "query=\(query)&start=\(String(start))&sort=\(sort.rawValue)"
 }

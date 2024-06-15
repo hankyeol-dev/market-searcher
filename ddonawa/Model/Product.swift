@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Product: Encodable, Decodable {
+struct ProductUserLiked: Codable {
+    let productId: String
+}
+
+struct Product: Decodable {
     let productId: String
     let title: String
     let mallName: String
