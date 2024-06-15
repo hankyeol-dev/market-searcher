@@ -15,7 +15,6 @@ class VSeachingItem: UICollectionViewCell {
     private let img = UIImageView()
     private let pickButtonBack = UIView()
     private let pickButtonImg = UIImageView(image: UIImage.likeUnselected)
-    private let pickButton = UIButton()
 
     private let mallLabel = VLabel("", tColor: ._gray_sm, tType: .sub)
     private let nameLabel = VLabel("", tType: .normal)
@@ -40,7 +39,6 @@ extension VSeachingItem {
         imgBack.addSubview(img)
         img.addSubview(pickButtonBack)
         pickButtonBack.addSubview(pickButtonImg)
-        pickButtonBack.addSubview(pickButton)
         
         imgBack.snp.makeConstraints {
             $0.top.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide)
@@ -56,10 +54,7 @@ extension VSeachingItem {
         pickButtonImg.snp.makeConstraints {
             $0.edges.equalTo(pickButtonBack.safeAreaLayoutGuide).inset(6)
         }
-        pickButton.snp.makeConstraints {
-            $0.edges.equalTo(pickButton.safeAreaLayoutGuide)
-            $0.size.equalTo(pickButtonBack.snp.size)
-        }
+  
         
         imgBack.layer.cornerRadius = Figure._corner_searchingItemImg
         imgBack.clipsToBounds = true
@@ -68,8 +63,9 @@ extension VSeachingItem {
         pickButtonBack.layer.cornerRadius = Figure._corner_searchingItemButton
         pickButtonBack.backgroundColor = ._gray_lg.withAlphaComponent(0.8)
         pickButtonImg.contentMode = .scaleAspectFit
+        pickButtonImg.isUserInteractionEnabled = true
+        pickButtonImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(togglePickButton)))
         
-        pickButton.addTarget(self, action: #selector(togglePickButton), for: .touchUpInside)
     }
     
     private func configureInfoBox() {

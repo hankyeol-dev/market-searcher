@@ -49,6 +49,7 @@
 		81DC84D02C1D623200730BAC /* TCMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84CF2C1D623200730BAC /* TCMain.swift */; };
 		81DC84D32C1D68B000730BAC /* VCSettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84D22C1D68B000730BAC /* VCSettingMain.swift */; };
 		81DC84D52C1D75DF00730BAC /* forLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84D42C1D75DF00730BAC /* forLabel.swift */; };
+		81DC84D72C1D977600730BAC /* VCSearchingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84D62C1D977600730BAC /* VCSearchingDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		81DC84CF2C1D623200730BAC /* TCMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCMain.swift; sourceTree = "<group>"; };
 		81DC84D22C1D68B000730BAC /* VCSettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSettingMain.swift; sourceTree = "<group>"; };
 		81DC84D42C1D75DF00730BAC /* forLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forLabel.swift; sourceTree = "<group>"; };
+		81DC84D62C1D977600730BAC /* VCSearchingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSearchingDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			children = (
 				81DC84B82C1C27BE00730BAC /* VCSearchingMain.swift */,
 				81DC84C82C1D445500730BAC /* VCSearchingList.swift */,
+				81DC84D62C1D977600730BAC /* VCSearchingDetail.swift */,
 			);
 			path = Searching;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				81DC84B92C1C27BE00730BAC /* VCSearchingMain.swift in Sources */,
 				81DC84C92C1D445500730BAC /* VCSearchingList.swift in Sources */,
 				81DC84CB2C1D534800730BAC /* VFilterButton.swift in Sources */,
+				81DC84D72C1D977600730BAC /* VCSearchingDetail.swift in Sources */,
 				81DC84C52C1D138C00730BAC /* VLabel.swift in Sources */,
 				81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */,
 				815E65102C1AD90F000185D7 /* ENV.swift in Sources */,

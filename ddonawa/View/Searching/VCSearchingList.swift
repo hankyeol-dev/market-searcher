@@ -139,6 +139,15 @@ extension VCSearchingList: UICollectionViewDelegate, UICollectionViewDataSource 
             fetchData(query: self.query, start: self.searchingStart + 30, sort: self.sortType)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = VCSearchingDetail()
+        let data = searchingList[indexPath.row]
+        
+        vc.setVCWithData(_replaceHTMLTag(data.title), data.link)
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension VCSearchingList {
