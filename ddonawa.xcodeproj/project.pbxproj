@@ -44,6 +44,10 @@
 		81DC84C52C1D138C00730BAC /* VLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84C42C1D138C00730BAC /* VLabel.swift */; };
 		81DC84C72C1D1C0D00730BAC /* VRecentSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */; };
 		81DC84C92C1D445500730BAC /* VCSearchingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84C82C1D445500730BAC /* VCSearchingList.swift */; };
+		81DC84CB2C1D534800730BAC /* VFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84CA2C1D534800730BAC /* VFilterButton.swift */; };
+		81DC84CD2C1D60D700730BAC /* VSeachingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84CC2C1D60D700730BAC /* VSeachingItem.swift */; };
+		81DC84D02C1D623200730BAC /* TCMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84CF2C1D623200730BAC /* TCMain.swift */; };
+		81DC84D32C1D68B000730BAC /* VCSettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84D22C1D68B000730BAC /* VCSettingMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +88,10 @@
 		81DC84C42C1D138C00730BAC /* VLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLabel.swift; sourceTree = "<group>"; };
 		81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRecentSearchCell.swift; sourceTree = "<group>"; };
 		81DC84C82C1D445500730BAC /* VCSearchingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSearchingList.swift; sourceTree = "<group>"; };
+		81DC84CA2C1D534800730BAC /* VFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFilterButton.swift; sourceTree = "<group>"; };
+		81DC84CC2C1D60D700730BAC /* VSeachingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSeachingItem.swift; sourceTree = "<group>"; };
+		81DC84CF2C1D623200730BAC /* TCMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCMain.swift; sourceTree = "<group>"; };
+		81DC84D22C1D68B000730BAC /* VCSettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSettingMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				815E65362C1B3A3C000185D7 /* Reusable */,
+				81DC84CE2C1D621200730BAC /* Common */,
 				815E65302C1B38A9000185D7 /* Onboarding */,
 				81DC84B72C1C279100730BAC /* Searching */,
+				81DC84D12C1D689C00730BAC /* Setting */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +228,8 @@
 				81DC84BE2C1C382100730BAC /* VProfileImageCollection.swift */,
 				81DC84C42C1D138C00730BAC /* VLabel.swift */,
 				81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */,
+				81DC84CA2C1D534800730BAC /* VFilterButton.swift */,
+				81DC84CC2C1D60D700730BAC /* VSeachingItem.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -229,6 +241,22 @@
 				81DC84C82C1D445500730BAC /* VCSearchingList.swift */,
 			);
 			path = Searching;
+			sourceTree = "<group>";
+		};
+		81DC84CE2C1D621200730BAC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				81DC84CF2C1D623200730BAC /* TCMain.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		81DC84D12C1D689C00730BAC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				81DC84D22C1D68B000730BAC /* VCSettingMain.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,11 +341,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				815E653C2C1BC488000185D7 /* VUnderlinedTextField.swift in Sources */,
+				81DC84D02C1D623200730BAC /* TCMain.swift in Sources */,
 				815E64FA2C1AD433000185D7 /* VCSettingProfile.swift in Sources */,
 				81DC84BB2C1C29C500730BAC /* VCSelectProfileImage.swift in Sources */,
 				81DC84AE2C1BF0DF00730BAC /* VProfile.swift in Sources */,
 				81DC84B92C1C27BE00730BAC /* VCSearchingMain.swift in Sources */,
 				81DC84C92C1D445500730BAC /* VCSearchingList.swift in Sources */,
+				81DC84CB2C1D534800730BAC /* VFilterButton.swift in Sources */,
 				81DC84C52C1D138C00730BAC /* VLabel.swift in Sources */,
 				81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */,
 				815E65102C1AD90F000185D7 /* ENV.swift in Sources */,
@@ -333,10 +363,12 @@
 				815E65352C1B39AA000185D7 /* forVC.swift in Sources */,
 				815E65152C1AE831000185D7 /* Product.swift in Sources */,
 				815E64F62C1AD433000185D7 /* AppDelegate.swift in Sources */,
+				81DC84CD2C1D60D700730BAC /* VSeachingItem.swift in Sources */,
 				81DC84BF2C1C382100730BAC /* VProfileImageCollection.swift in Sources */,
 				815E652B2C1B36E2000185D7 /* Icons.swift in Sources */,
 				81DC84B22C1BFEC300730BAC /* VButtonUpdateImage.swift in Sources */,
 				81DC84C72C1D1C0D00730BAC /* VRecentSearchCell.swift in Sources */,
+				81DC84D32C1D68B000730BAC /* VCSettingMain.swift in Sources */,
 				81DC84C32C1C4EB000730BAC /* forProfileImage.swift in Sources */,
 				815E652F2C1B37D6000185D7 /* Texts.swift in Sources */,
 				815E653A2C1BC1A9000185D7 /* VLogo.swift in Sources */,

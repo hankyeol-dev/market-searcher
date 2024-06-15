@@ -24,7 +24,16 @@ enum Texts: String {
     enum Buttons: String {
         case ONBOARDING_START = "시작하기"
         case ONBOARDING_CONFIRM = "완료"
+        
+        case TABBAR_0 = "검색"
+        case TABBAR_1 = "설정"
+        
         case RECENTSEARCHING_DELETE_BTN = "전체 삭제"
+        
+        case FILTER_SIM = "정확도"
+        case FILTER_DATE = "날짜순"
+        case FILTER_PRICE_ASC = "가격낮은순"
+        case FILTER_PRICE_DSC = "가격높은순"
     }
     
     enum Indicator: String {
@@ -38,5 +47,6 @@ enum Texts: String {
     
     enum Menu: String {
         case RECENTSEARCHING = "최근 검색"
+        case SETTING = "또나와 설정"
     }
 }

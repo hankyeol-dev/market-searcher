@@ -22,7 +22,7 @@ extension UIViewController: ID {
     }
     
     func configureNav(navTitle: String, left: UIBarButtonItem?, right: UIBarButtonItem?) {
-        title = navTitle
+        navigationItem.title = navTitle
         
         if let left {
             navigationItem.leftBarButtonItem = left
