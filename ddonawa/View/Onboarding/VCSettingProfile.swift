@@ -27,7 +27,7 @@ class VCSettingProfile: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureNavigation()
+        configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: nil)
         configureView()
         configureTxF()
         configureProfileImage()
@@ -41,11 +41,6 @@ class VCSettingProfile: UIViewController {
 }
 
 extension VCSettingProfile {
-    func configureNavigation() {
-        let leftItem = UIBarButtonItem(image: Icons._leftArrow, style: .plain, target: self, action: #selector(goBack))
-        leftItem.tintColor = .black
-        configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: leftItem, right: nil)
-    }
     
     func configureView() {
         view.backgroundColor = .systemBackground
@@ -127,6 +122,8 @@ extension VCSettingProfile {
             image: ProfileImage(
                 id: selectedImageId,
                 sourceName: getProfileImageById(selectedImageId).sourceName))
+        print(User.getOrSaveUser)
+        print(User.isSavedUser)
         dismissViewStack(VCSearchingMain())
     }
     

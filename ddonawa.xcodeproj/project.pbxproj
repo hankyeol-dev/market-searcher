@@ -41,6 +41,9 @@
 		81DC84BF2C1C382100730BAC /* VProfileImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84BE2C1C382100730BAC /* VProfileImageCollection.swift */; };
 		81DC84C12C1C471400730BAC /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84C02C1C471400730BAC /* ProfileImage.swift */; };
 		81DC84C32C1C4EB000730BAC /* forProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84C22C1C4EB000730BAC /* forProfileImage.swift */; };
+		81DC84C52C1D138C00730BAC /* VLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84C42C1D138C00730BAC /* VLabel.swift */; };
+		81DC84C72C1D1C0D00730BAC /* VRecentSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */; };
+		81DC84C92C1D445500730BAC /* VCSearchingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84C82C1D445500730BAC /* VCSearchingList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		81DC84BE2C1C382100730BAC /* VProfileImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VProfileImageCollection.swift; sourceTree = "<group>"; };
 		81DC84C02C1C471400730BAC /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		81DC84C22C1C4EB000730BAC /* forProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forProfileImage.swift; sourceTree = "<group>"; };
+		81DC84C42C1D138C00730BAC /* VLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLabel.swift; sourceTree = "<group>"; };
+		81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRecentSearchCell.swift; sourceTree = "<group>"; };
+		81DC84C82C1D445500730BAC /* VCSearchingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSearchingList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,8 @@
 				81DC84B52C1C1BD000730BAC /* VIndicatingLabel.swift */,
 				81DC84BC2C1C370500730BAC /* VProfileImageItem.swift */,
 				81DC84BE2C1C382100730BAC /* VProfileImageCollection.swift */,
+				81DC84C42C1D138C00730BAC /* VLabel.swift */,
+				81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				81DC84B82C1C27BE00730BAC /* VCSearchingMain.swift */,
+				81DC84C82C1D445500730BAC /* VCSearchingList.swift */,
 			);
 			path = Searching;
 			sourceTree = "<group>";
@@ -308,6 +317,8 @@
 				81DC84BB2C1C29C500730BAC /* VCSelectProfileImage.swift in Sources */,
 				81DC84AE2C1BF0DF00730BAC /* VProfile.swift in Sources */,
 				81DC84B92C1C27BE00730BAC /* VCSearchingMain.swift in Sources */,
+				81DC84C92C1D445500730BAC /* VCSearchingList.swift in Sources */,
+				81DC84C52C1D138C00730BAC /* VLabel.swift in Sources */,
 				81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */,
 				815E65102C1AD90F000185D7 /* ENV.swift in Sources */,
 				815E65232C1B2CA3000185D7 /* UI.swift in Sources */,
@@ -325,6 +336,7 @@
 				81DC84BF2C1C382100730BAC /* VProfileImageCollection.swift in Sources */,
 				815E652B2C1B36E2000185D7 /* Icons.swift in Sources */,
 				81DC84B22C1BFEC300730BAC /* VButtonUpdateImage.swift in Sources */,
+				81DC84C72C1D1C0D00730BAC /* VRecentSearchCell.swift in Sources */,
 				81DC84C32C1C4EB000730BAC /* forProfileImage.swift in Sources */,
 				815E652F2C1B37D6000185D7 /* Texts.swift in Sources */,
 				815E653A2C1BC1A9000185D7 /* VLogo.swift in Sources */,

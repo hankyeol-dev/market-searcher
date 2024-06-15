@@ -13,6 +13,6 @@ enum Icons {
     static let _rightArrow = UIImage(systemName: "chevron.right")
     static let _leftArrow = UIImage(systemName: "chevron.left")
     static let _clock = UIImage(systemName: "clock")
-    static let _close = UIImage(systemName: "xmark")
+    static let _delete = UIImage(systemName: "xmark")
     static let _camera = UIImage(systemName: "camera.fill")
 }

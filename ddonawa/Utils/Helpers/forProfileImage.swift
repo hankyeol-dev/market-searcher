@@ -20,7 +20,7 @@ func getProfileImageById(_ id: Int) -> ProfileImage {
 }
 
 func mappingProfileImageArrayBySelectedId(_ id: Int) -> [ProfileImage] {
-    var selected = getProfileImageById(id)
+    let selected = getProfileImageById(id)
     
     var array = _filter(genProfileImageArray(), {
         $0.id != id

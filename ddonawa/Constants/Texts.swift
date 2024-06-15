@@ -8,6 +8,7 @@
 import Foundation
 
 enum Texts: String {
+    
     case APP_NAME = "또나와"
     case APP_NAME_EN = "DDONAWA"
     
@@ -17,11 +18,13 @@ enum Texts: String {
     
     enum Placeholders: String {
         case ONBOARDING_NICK = "닉네임을 입력해주세요 :)"
+        case SEARCHING_PRODUCT = "브랜드, 상품 등을 입력하세요."
     }
     
     enum Buttons: String {
         case ONBOARDING_START = "시작하기"
         case ONBOARDING_CONFIRM = "완료"
+        case RECENTSEARCHING_DELETE_BTN = "전체 삭제"
     }
     
     enum Indicator: String {
@@ -31,5 +34,9 @@ enum Texts: String {
         case NICKNAME_ERROR_SPECIAL_LETTER = "닉네임에 @, #, $, % 는 들어갈 수 없어요."
         case NICKNAME_ERROR_NUMBER = "닉네임에 숫자는 들어갈 수 없어요."
         case NICKNAME_SUCCESS = "정말 멋진 닉네임이에요!"
+    }
+    
+    enum Menu: String {
+        case RECENTSEARCHING = "최근 검색"
     }
 }

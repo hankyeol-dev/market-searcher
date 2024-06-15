@@ -32,6 +32,13 @@ extension UIViewController: ID {
         }
     }
     
+    func genLeftGoBackBarButton() -> UIBarButtonItem {
+        let leftItem = UIBarButtonItem(image: Icons._leftArrow, style: .plain, target: self, action: #selector(goBack))
+        leftItem.tintColor = .black
+        
+        return leftItem
+    }
+    
     func dismissViewStack(_ vc: UIViewController) {
         let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = scene?.delegate as? SceneDelegate

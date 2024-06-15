@@ -12,12 +12,14 @@ struct User: Codable {
     private var nickname: String
     private var image: ProfileImage
     private var liked: [Product]
+    private var recentSearch: [String]
     private static var key = "user"
     
-    init(nickname: String, image: ProfileImage, liked: [Product] = []) {
+    init(nickname: String, image: ProfileImage, liked: [Product] = [], recentSearch: [String] = []) {
         self.nickname = nickname
         self.image = image
         self.liked = liked
+        self.recentSearch = recentSearch
     }
     
     var getOrChangeNick: String {
@@ -41,9 +43,11 @@ struct User: Codable {
     }
     
     var getLiked: [Product] {
-        get {
-            return self.liked
-        }
+        return self.liked
+    }
+    
+    var getRecentSearch: [String] {
+        return self.recentSearch
     }
     
     static var isSavedUser: Bool {
@@ -73,5 +77,16 @@ struct User: Codable {
     mutating func deleteLiked(_ productId: String) {
         self.liked = _filter(self.liked, { $0.productId != productId })
     }
-
+    
+    mutating func addRecentSearch(_ keyword: String) {
+        self.recentSearch.append(keyword)
+    }
+    
+    mutating func deleteRecentSearch(_ keywordId: Int) {
+        self.recentSearch.remove(at: self.recentSearch.count - 1 - keywordId)
+    }
+    
+    mutating func deleteAllRecentSearch() {
+        self.recentSearch = []
+    }
 }

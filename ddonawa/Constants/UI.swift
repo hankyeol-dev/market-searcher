@@ -18,6 +18,7 @@ extension UIColor {
 }
 
 extension UIFont {
+    static let _xs = UIFont.systemFont(ofSize: 11)
     static let _sm = UIFont.systemFont(ofSize: 13)
     static let _md = UIFont.systemFont(ofSize: 14)
     static let _lg = UIFont.systemFont(ofSize: 15)
@@ -30,6 +31,7 @@ extension UIFont {
 
 extension UIImage {
     static let _launch = UIImage(named: "launch")
+    static let _empty = UIImage(named: "empty")
     
     enum profile: String, CaseIterable {
         case _profile_0 = "profile_0"
