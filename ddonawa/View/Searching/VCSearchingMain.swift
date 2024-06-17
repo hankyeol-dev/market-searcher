@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class VCSearchingMain: UIViewController {
+class VCSearchingMain: VCMain {
     private lazy var recentSearchList: [String] = []
     
     let searchBar = UISearchBar()
@@ -20,7 +20,6 @@ class VCSearchingMain: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         
         configureSearchBar()
     }
@@ -49,7 +48,7 @@ class VCSearchingMain: UIViewController {
 extension VCSearchingMain {
     private func configureNavigation() {
         let nickname = User.getOrSaveUser.getOrChangeNick
-        configureNav(navTitle: "\(nickname) 님의 또나와", left: nil, right: nil)
+        configureNav(navTitle: "\(nickname)님의 또나와", left: nil, right: nil)
     }
 
     private func emptyRecentSearching() {

@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 import SnapKit
 
-class VCSearchingDetail: UIViewController {
+class VCSearchingDetail: VCMain {
     private lazy var itemId: String = ""
     private lazy var itemName: String = ""
     private lazy var itemWebLink: String = ""
@@ -18,7 +18,6 @@ class VCSearchingDetail: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         
         configureWebView()
     }
@@ -43,12 +42,10 @@ extension VCSearchingDetail {
     }
     
     func configureWebView() {
-        
         view.addSubview(web)
         web.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
-        
         web.load(URLRequest(url: URL(string: itemWebLink)!))
     }
 }

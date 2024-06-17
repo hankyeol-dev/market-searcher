@@ -9,18 +9,17 @@ import UIKit
 import SnapKit
 import Alamofire
 
-class VCSearchingList: UIViewController {
-    lazy var query = ""
-    lazy var filterButtonSortTypes = [SortType.sim, SortType.date, SortType.asc, SortType.dsc]
-    
+class VCSearchingList: VCMain {
+    private lazy var query = ""
+    private lazy var filterButtonSortTypes = [SortType.sim, SortType.date, SortType.asc, SortType.dsc]
     private lazy var searchingList:[Product] = []
     private lazy var searchingStart: Int = 1
     private lazy var searchingTotal: Int = 0
     private lazy var sortType: SortType = .sim
     
-    let searchCountLabel = VLabel(" ", tColor: ._main, tType: .impact)
-    let filterButtonStack = UIStackView()
-    let searchingCollection = {
+    private let searchCountLabel = VLabel(" ", tColor: ._main, tType: .impact)
+    private let filterButtonStack = UIStackView()
+    private let searchingCollection = {
         let layout = UICollectionViewFlowLayout()
         
         let width = (UIScreen.main.bounds.width - 48) / 2
@@ -34,7 +33,7 @@ class VCSearchingList: UIViewController {
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
-    let filterButtons: [VFilterButton] = [
+    private let filterButtons: [VFilterButton] = [
         VFilterButton(Texts.Buttons.FILTER_SIM.rawValue),
         VFilterButton(Texts.Buttons.FILTER_DATE.rawValue),
         VFilterButton(Texts.Buttons.FILTER_PRICE_ASC.rawValue),
@@ -43,7 +42,6 @@ class VCSearchingList: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         
         configureSubView()
         configureLayout()
@@ -96,7 +94,6 @@ extension VCSearchingList {
     func setVCWithData(_ keyword: String) {
         query = keyword
         
-        // api 호출 여기
         fetchData(query: self.query, start: self.searchingStart, sort: self.sortType)
     }
 }
@@ -173,7 +170,6 @@ extension VCSearchingList {
     
     @objc
     func sortButtonTouch(_ sender: UIButton) {
-
         filterButtons.enumerated().forEach { (idx, v) in
             if idx == sender.tag {
                 v.isSelected()

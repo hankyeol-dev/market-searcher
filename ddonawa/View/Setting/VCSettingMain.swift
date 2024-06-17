@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class VCSettingMain: UIViewController {
+class VCSettingMain: VCMain {
     private lazy var likedCount = User.getOrSaveUser.getLiked.count
     private let tableList = SettingTableList
     
@@ -17,15 +17,14 @@ class VCSettingMain: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         
-        configureNav(navTitle: Texts.Menu.SETTING.rawValue, left: nil, right: nil)
         configureProfileView()
         configureTable()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        configureNav(navTitle: Texts.Menu.SETTING.rawValue, left: nil, right: nil)
         likedCount = User.getOrSaveUser.getLiked.count
         table.reloadSections(IndexSet(integer: 0), with: .none)
     }
@@ -64,20 +63,13 @@ extension VCSettingMain: UITableViewDelegate, UITableViewDataSource {
         table.separatorStyle = .singleLine
         table.separatorColor = ._gray_lg
         table.separatorInset = UIEdgeInsets(top: 4, left: 24, bottom: 4, right: 24)
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        table.rowHeight = 40
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableList.count
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
-    }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: VSettingCell.id, for: indexPath) as! VSettingCell
         
@@ -92,8 +84,8 @@ extension VCSettingMain: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == tableList.count - 1 {
-            table.reloadSections(IndexSet(integer: 1), with: .none)
             present(_showAlert(), animated: true)
+            table.reloadSections(IndexSet(integer: 0), with: .none)
         }
     }
 }
