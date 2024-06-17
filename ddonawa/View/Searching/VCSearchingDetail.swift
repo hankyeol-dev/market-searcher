@@ -10,8 +10,9 @@ import WebKit
 import SnapKit
 
 class VCSearchingDetail: UIViewController {
+    private lazy var itemId: String = ""
     private lazy var itemName: String = ""
-    private lazy var webLink: String = ""
+    private lazy var itemWebLink: String = ""
     
     private let web = WKWebView()
     
@@ -25,14 +26,20 @@ class VCSearchingDetail: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        configureNav(navTitle: itemName, left: genLeftGoBackBarButton(), right: nil)
+        let rightBarItem = UIBarButtonItem(image: User.getOrSaveUser.isInLiked(itemId) ? UIImage.likeSelected : UIImage.likeUnselected, style: .plain, target: self, action: #selector(toggleLikeButton))
+
+        rightBarItem.tintColor = ._gray_lg
+        
+        configureNav(navTitle: itemName, left: genLeftGoBackBarButton(), right: rightBarItem)
     }
 }
 
 extension VCSearchingDetail {
-    func setVCWithData(_ title: String, _ link: String) {
-        itemName = title
-        webLink = link
+    func setVCWithData(_ data: Product) {
+        itemId = data.productId
+        itemName = _replaceHTMLTag(data.title)
+        itemWebLink = data.link
+        
     }
     
     func configureWebView() {
@@ -42,6 +49,22 @@ extension VCSearchingDetail {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
-        web.load(URLRequest(url: URL(string: webLink)!))
+        web.load(URLRequest(url: URL(string: itemWebLink)!))
+    }
+}
+
+extension VCSearchingDetail {
+    @objc
+    private func toggleLikeButton() {
+        var user = User.getOrSaveUser
+        
+        if !user.isInLiked(itemId) {
+            user.addLiked(ProductUserLiked(productId: itemId))
+        } else {
+            user.deleteLiked(itemId)
+        }
+        
+        User.getOrSaveUser = user
+        self.viewWillAppear(true)
     }
 }

@@ -140,11 +140,13 @@ extension VCSettingProfile {
     @objc
     func updateUser() {
         guard let nickname = nickField.text else { return }
-        User.getOrSaveUser = User(
-            nickname: nickname,
-            image: ProfileImage(
-                id: selectedImageId,
-                sourceName: getProfileImageById(selectedImageId).sourceName))
+        var user = User.getOrSaveUser
+        user.getOrChangeNick = nickname
+        user.getOrChangeImage = ProfileImage(
+            id: selectedImageId,
+            sourceName: getProfileImageById(selectedImageId).sourceName)
+        
+        User.getOrSaveUser = user
         
         let tc = TCMain()
         tc.selectedIndex = 1

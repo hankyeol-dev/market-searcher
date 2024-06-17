@@ -15,7 +15,7 @@ class VSeachingItem: UICollectionViewCell {
     private let img = UIImageView()
     private let pickButtonBack = UIView()
     private let pickButtonImg = UIImageView(image: UIImage.likeUnselected)
-
+    
     private let mallLabel = VLabel("", tColor: ._gray_sm, tType: .sub)
     private let nameLabel = VLabel("", tType: .normal)
     private let priceLabel  = VLabel("", tType: .impact)
@@ -37,7 +37,7 @@ extension VSeachingItem {
     private func configureImg() {
         contentView.addSubview(imgBack)
         imgBack.addSubview(img)
-        img.addSubview(pickButtonBack)
+        contentView.addSubview(pickButtonBack)
         pickButtonBack.addSubview(pickButtonImg)
         
         imgBack.snp.makeConstraints {
@@ -54,7 +54,7 @@ extension VSeachingItem {
         pickButtonImg.snp.makeConstraints {
             $0.edges.equalTo(pickButtonBack.safeAreaLayoutGuide).inset(6)
         }
-  
+        
         
         imgBack.layer.cornerRadius = Figure._corner_searchingItemImg
         imgBack.clipsToBounds = true
@@ -64,8 +64,8 @@ extension VSeachingItem {
         pickButtonBack.backgroundColor = ._gray_lg.withAlphaComponent(0.8)
         pickButtonImg.contentMode = .scaleAspectFit
         pickButtonImg.isUserInteractionEnabled = true
-        pickButtonImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(togglePickButton)))
         
+        pickButtonImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(togglePickButton)))
     }
     
     private func configureInfoBox() {
@@ -92,6 +92,8 @@ extension VSeachingItem {
     func setItemWithData(_ data: Product) {
         self.itemId = data.productId
         img.kf.setImage(with: URL(string: data.image))
+        pickButtonBack.backgroundColor = User.getOrSaveUser.isInLiked(data.productId) ? ._white : ._gray_lg.withAlphaComponent(0.8)
+        pickButtonImg.image = User.getOrSaveUser.isInLiked(data.productId) ? UIImage.likeSelected : UIImage.likeUnselected
         mallLabel.changeLabelText(data.mallName)
         nameLabel.changeLabelText(_replaceHTMLTag(data.title))
         nameLabel.numberOfLines = 2
@@ -100,27 +102,24 @@ extension VSeachingItem {
     
     @objc
     func togglePickButton() {
-        print("toggled!")
-        if User.isSavedUser {
-            var user = User.getOrSaveUser
+        var user = User.getOrSaveUser
+        
+        if !user.isInLiked(self.itemId) {
+            // 좋아요 하지 않은 상태
+            // 일단 UI 변경해주고
+            pickButtonBack.backgroundColor = .systemBackground
+            pickButtonImg.image = UIImage.likeSelected
             
-            if !user.isInLiked(self.itemId) {
-                // 좋아요 하지 않은 상태
-                // 일단 UI 변경해주고
-                pickButtonBack.backgroundColor = .systemBackground
-                pickButtonImg.image = UIImage.likeSelected
-
-                // 좋아요 리스트에 넣어주고
-                user.addLiked(ProductUserLiked(productId: self.itemId))
-            } else {
-                // 좋아요 했던 상태
-                pickButtonBack.backgroundColor = ._gray_lg.withAlphaComponent(0.8)
-                pickButtonImg.image = UIImage.likeUnselected
-                
-                user.deleteLiked(self.itemId)
-            }
+            // 좋아요 리스트에 넣어주고
+            user.addLiked(ProductUserLiked(productId: self.itemId))
+        } else {
+            // 좋아요 했던 상태
+            pickButtonBack.backgroundColor = ._gray_lg.withAlphaComponent(0.8)
+            pickButtonImg.image = UIImage.likeUnselected
             
-            User.getOrSaveUser = user
+            user.deleteLiked(self.itemId)
         }
+        
+        User.getOrSaveUser = user
     }
 }

@@ -233,6 +233,11 @@
 		815E65362C1B3A3C000185D7 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				81DC84BE2C1C382100730BAC /* VProfileImageCollection.swift */,
+				81DC84CC2C1D60D700730BAC /* VSeachingItem.swift */,
+				81DC84BC2C1C370500730BAC /* VProfileImageItem.swift */,
+				81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */,
+				81D18EC32C1FB0A400480184 /* VSettingCell.swift */,
 				815E65372C1B3A6E000185D7 /* VButton.swift */,
 				815E65392C1BC1A9000185D7 /* VLogo.swift */,
 				815E653B2C1BC488000185D7 /* VUnderlinedTextField.swift */,
@@ -240,13 +245,8 @@
 				81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */,
 				81DC84B12C1BFEC300730BAC /* VButtonUpdateImage.swift */,
 				81DC84B52C1C1BD000730BAC /* VIndicatingLabel.swift */,
-				81DC84BC2C1C370500730BAC /* VProfileImageItem.swift */,
-				81DC84BE2C1C382100730BAC /* VProfileImageCollection.swift */,
 				81DC84C42C1D138C00730BAC /* VLabel.swift */,
-				81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */,
 				81DC84CA2C1D534800730BAC /* VFilterButton.swift */,
-				81DC84CC2C1D60D700730BAC /* VSeachingItem.swift */,
-				81D18EC32C1FB0A400480184 /* VSettingCell.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";

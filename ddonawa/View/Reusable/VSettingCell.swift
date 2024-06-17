@@ -8,13 +8,8 @@
 import UIKit
 import SnapKit
 
-enum CellType {
-    case profile
-    case line
-}
-
 class VSettingCell: UITableViewCell {
-    private let profile = VProfile(viewType: .withProfileInfo, isNeedToRandom: false, imageArray: nil)
+    
     private let cellTitle = VLabel("", tType: .normal)
     private let celllSubTitle = VLabel("", tType: .normal)
     
@@ -30,14 +25,6 @@ class VSettingCell: UITableViewCell {
 }
 
 extension VSettingCell {
-    private func configureProfileView() {
-        contentView.addSubview(profile)
-        profile.snp.makeConstraints {
-            $0.top.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide)
-            $0.height.equalTo(Figure._profile_sm)
-        }
-    }
-    
     private func configureView() {
         contentView.addSubview(cellTitle)
         contentView.addSubview(celllSubTitle)
@@ -58,12 +45,4 @@ extension VSettingCell {
         celllSubTitle.changeLabelText(sub)
     }
     
-    func setCellByType(_ type: CellType) {
-        switch type {
-        case .profile:
-            configureProfileView()
-        case .line:
-            configureView()
-        }
-    }
 }

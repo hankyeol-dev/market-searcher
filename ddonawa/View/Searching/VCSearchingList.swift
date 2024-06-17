@@ -54,7 +54,7 @@ class VCSearchingList: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNav(navTitle: query, left: genLeftGoBackBarButton(), right: nil)
-        
+        searchingCollection.reloadData()
     }
     
 }
@@ -144,7 +144,7 @@ extension VCSearchingList: UICollectionViewDelegate, UICollectionViewDataSource 
         let vc = VCSearchingDetail()
         let data = searchingList[indexPath.row]
         
-        vc.setVCWithData(_replaceHTMLTag(data.title), data.link)
+        vc.setVCWithData(data)
         
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -54,6 +54,7 @@ class VProfileImage: UIImageView {
     func isNotSelected() {
         layer.borderColor = UIColor._gray_sm.cgColor
         layer.borderWidth = Figure._border_sm
+        alpha = 0.5
     }
     
     func isSelected() {
