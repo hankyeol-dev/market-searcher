@@ -14,6 +14,7 @@ enum Texts: String {
     
     enum Navigations: String {
         case ONBOARDING_PROFILE_SETTING = "프로필 설정하기"
+        case UPDATING_PROFILE_SETTING = "프로필 수정하기"
     }
     
     enum Placeholders: String {
@@ -27,6 +28,8 @@ enum Texts: String {
         
         case TABBAR_0 = "검색"
         case TABBAR_1 = "설정"
+        
+        case NAVIGATION_SAVE = "저장"
         
         case RECENTSEARCHING_DELETE_BTN = "전체 삭제"
         

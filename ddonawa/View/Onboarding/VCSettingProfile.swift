@@ -27,7 +27,6 @@ class VCSettingProfile: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: nil)
         configureView()
         configureTxF()
         configureProfileImage()
@@ -43,6 +42,8 @@ class VCSettingProfile: UIViewController {
 extension VCSettingProfile {
     
     func configureView() {
+        configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: nil)
+        
         view.backgroundColor = .systemBackground
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
@@ -96,6 +97,17 @@ extension VCSettingProfile {
             confirmButton.addTarget(self, action: #selector(saveUser), for: .touchUpInside)
         }
     }
+    
+    func configureViewAtUpdate() {
+        let user = User.getOrSaveUser
+        let rightSaveButton = UIBarButtonItem(title: Texts.Buttons.NAVIGATION_SAVE.rawValue, style: .plain, target: self, action: #selector(updateUser))
+        rightSaveButton.tintColor = ._black
+        
+        configureNav(navTitle: Texts.Navigations.UPDATING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: rightSaveButton)
+        
+        nickField.text = user.getOrChangeNick
+        confirmButton.isHidden = true
+    }
 }
 
 extension VCSettingProfile {
@@ -123,6 +135,17 @@ extension VCSettingProfile {
                 id: selectedImageId,
                 sourceName: getProfileImageById(selectedImageId).sourceName))
         _dismissViewStack(TCMain())
+    }
+    
+    @objc
+    func updateUser() {
+        guard let nickname = nickField.text else { return }
+        User.getOrSaveUser = User(
+            nickname: nickname,
+            image: ProfileImage(
+                id: selectedImageId,
+                sourceName: getProfileImageById(selectedImageId).sourceName))
+        _dismissViewStack(UINavigationController(rootViewController: VCSettingMain()))
     }
     
     func setSelectedImageId(_ id: Int) {

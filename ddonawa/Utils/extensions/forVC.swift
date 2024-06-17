@@ -21,6 +21,7 @@ extension UIViewController: ID {
         navigationController?.popViewController(animated: true)
     }
     
+    
     func configureNav(navTitle: String, left: UIBarButtonItem?, right: UIBarButtonItem?) {
         navigationItem.title = navTitle
         
@@ -34,11 +35,15 @@ extension UIViewController: ID {
     
     func genLeftGoBackBarButton() -> UIBarButtonItem {
         let leftItem = UIBarButtonItem(image: Icons._leftArrow, style: .plain, target: self, action: #selector(goBack))
-        leftItem.tintColor = .black
+        leftItem.tintColor = ._black
         
         return leftItem
     }
     
+    enum RightBarButtonType {
+        case image
+        case title
+    }
     
 }
 

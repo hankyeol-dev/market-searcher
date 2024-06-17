@@ -80,7 +80,6 @@ struct User: Codable {
     
     static var deleteUser: Void {
         UserDefaults.standard.removeObject(forKey: User.key)
-        UserDefaults.standard.removeObject(forKey: <#T##String#>)
     }
     
     mutating func isInLiked(_ productId: String) -> Bool {
