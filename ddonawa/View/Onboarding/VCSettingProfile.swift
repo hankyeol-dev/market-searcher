@@ -8,31 +8,34 @@
 import UIKit
 import SnapKit
 
-class VCSettingProfile: UIViewController {
+class VCSettingProfile: VCMain {
     var userSelectedId: Int?
     lazy var selectedImageId = 0
-    
     private let isSavedUser = User.isSavedUser
-    private let profileView = VProfile(
+    
+    private let profile = VProfile(
         viewType: .onlyProfileImage,
         isNeedToRandom: true,
         imageArray: genProfileImageArray()
     )
-    private let profileImageUpdateView = VButtonUpdateImage()
+    private let profileImgUpdateImg = VUpdateProfileImgButton()
     private let profileImageUpdateButton = UIButton()
-    private let nickField = VUnderlinedTextField(Texts.Placeholders.ONBOARDING_NICK.rawValue)
-    private let indicatingLabel = VIndicatingLabel()
-    private let confirmButton = VButton(Texts.Buttons.ONBOARDING_CONFIRM.rawValue)
+    private let nicknameField = VUnderlinedTextField(Texts.Placeholders.ONBOARDING_NICK.rawValue)
+    private let indicator = VIndicatingLabel()
+    private let confirmButton = VConfirmButton(Texts.Buttons.ONBOARDING_CONFIRM.rawValue)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureView()
-        configureTxF()
-        configureProfileImage()
+        configureSubView()
+        configureLayout()
+        configureAddAction()
+        configureTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: nil)
+        
         if ProfileImage.getOrSetId != 0 {
             self.setSelectedImageId(ProfileImage.getOrSetId)
         }
@@ -41,28 +44,22 @@ class VCSettingProfile: UIViewController {
 
 extension VCSettingProfile {
     
-    func configureView() {
-        configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: nil)
-        
-        view.backgroundColor = .systemBackground
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
-        
-        view.addSubview(profileView)
-        view.addSubview(profileImageUpdateView)
-        profileImageUpdateView.addSubview(profileImageUpdateButton)
-        view.addSubview(nickField)
-        view.addSubview(indicatingLabel)
-        view.addSubview(confirmButton)
-        
-        profileView.snp.makeConstraints {
+    func configureSubView() {
+        [profile, profileImgUpdateImg, nicknameField, indicator, confirmButton].forEach {
+            view.addSubview($0)
+        }
+        profileImgUpdateImg.addSubview(profileImageUpdateButton)
+    }
+    
+    private func configureLayout() {
+        profile.snp.makeConstraints {
             $0.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(Figure._profile_lg)
         }
         
-        profileImageUpdateView.snp.makeConstraints {
-            $0.centerX.equalTo(profileView.snp.centerX).offset(44)
-            $0.bottom.equalTo(profileView.snp.bottom).inset(20)
+        profileImgUpdateImg.snp.makeConstraints {
+            $0.centerX.equalTo(profile.snp.centerX).offset(44)
+            $0.bottom.equalTo(profile.snp.bottom).inset(20)
             $0.size.equalTo(36)
         }
         
@@ -70,27 +67,30 @@ extension VCSettingProfile {
             $0.edges.equalToSuperview()
         }
         
-        nickField.snp.makeConstraints {
-            $0.top.equalTo(profileView.snp.bottom).offset(40)
+        nicknameField.snp.makeConstraints {
+            $0.top.equalTo(profile.snp.bottom).offset(40)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(44)
         }
         
-        indicatingLabel.snp.makeConstraints {
-            $0.top.equalTo(nickField.snp.bottom).offset(8)
+        indicator.snp.makeConstraints {
+            $0.top.equalTo(nicknameField.snp.bottom).offset(8)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
         
         confirmButton.snp.makeConstraints {
-            $0.top.equalTo(indicatingLabel.snp.bottom).offset(40)
+            $0.top.equalTo(indicator.snp.bottom).offset(40)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(56)
         }
     }
     
-    private func configureProfileImage() {
-        profileImageUpdateButton.addTarget(self, action: #selector(goProfileImageSelectPage), for: .touchUpInside)
+    private func configureAddAction() {
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
+        profileImageUpdateButton.addTarget(self, action: #selector(presentProfileImageSelectVC), for: .touchUpInside)
     }
+    
     
     private func configureConfirmButton() {
         if confirmButton.isEnabled {
@@ -105,30 +105,29 @@ extension VCSettingProfile {
         
         configureNav(navTitle: Texts.Navigations.UPDATING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: rightSaveButton)
         
-        nickField.text = user.getOrChangeNick
+        nicknameField.text = user.getOrChangeNick
         confirmButton.isHidden = true
     }
 }
 
 extension VCSettingProfile {
-    
     @objc
     func endEditing() {
-        nickField.endEditing(true)
-        nickField.fieldOutFocus()
+        nicknameField.endEditing(true)
+        nicknameField.fieldOutFocus()
     }
     
     @objc
-    func goProfileImageSelectPage() {
+    func presentProfileImageSelectVC() {
         let vc = VCSelectProfileImage()
-        vc.setProfileImage(getProfileImageById(profileView.getPresentImage()))
+        vc.setProfileImage(getProfileImageById(profile.getPresentImage()))
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc
     func saveUser() {
-        guard let nickname = nickField.text else { return }
+        guard let nickname = nicknameField.text else { return }
         User.getOrSaveUser = User(
             nickname: nickname,
             image: ProfileImage(
@@ -139,7 +138,7 @@ extension VCSettingProfile {
     
     @objc
     func updateUser() {
-        guard let nickname = nickField.text else { return }
+        guard let nickname = nicknameField.text else { return }
         var user = User.getOrSaveUser
         user.getOrChangeNick = nickname
         user.getOrChangeImage = ProfileImage(
@@ -156,19 +155,19 @@ extension VCSettingProfile {
     
     func setSelectedImageId(_ id: Int) {
         selectedImageId = id
-        profileView.setImage(getProfileImageById(selectedImageId))
+        profile.setImage(getProfileImageById(selectedImageId))
     }
 }
 
 extension VCSettingProfile: UITextFieldDelegate {
-    private func configureTxF() {
-        nickField.delegate = self
+    private func configureTextField() {
+        nicknameField.delegate = self
         confirmButton.changeColorByDisabled()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        nickField.fieldOnFocus()
-        indicatingLabel.startEditing()
+        nicknameField.fieldOnFocus()
+        indicator.startEditing()
     }
     
     
@@ -180,7 +179,7 @@ extension VCSettingProfile: UITextFieldDelegate {
             let isBackSpace = strcmp(char, "\\b")
             if (isBackSpace == -92) {
                 if text.count - 1 < 2 {
-                    indicatingLabel.isLowerThanTwo()
+                    indicator.isLowerThanTwo()
                     confirmButton.changeColorByDisabled()
                 }
                 return true
@@ -188,32 +187,32 @@ extension VCSettingProfile: UITextFieldDelegate {
         }
         
         if text.isEmpty {
-            indicatingLabel.isEmpty()
+            indicator.isEmpty()
             confirmButton.changeColorByDisabled()
         }
         
         if isContainsNumber(string) {
-            indicatingLabel.isContainsNumber()
+            indicator.isContainsNumber()
             confirmButton.changeColorByDisabled()
             return false
         }
         
         if isContainsSpecialLetter(string) {
-            indicatingLabel.isContainsSpecialLetter()
+            indicator.isContainsSpecialLetter()
             confirmButton.changeColorByDisabled()
             return false
         }
         
         if text.count + 1 > 10 {
-            nickField.endEditing(true)
+            nicknameField.endEditing(true)
             return false
         }
         
         if text.count + 1 < 2 {
-            indicatingLabel.isLowerThanTwo()
+            indicator.isLowerThanTwo()
             confirmButton.changeColorByDisabled()
         } else {
-            indicatingLabel.isSuccess()
+            indicator.isSuccess()
             confirmButton.changeColorByEnabled()
             configureConfirmButton()
         }

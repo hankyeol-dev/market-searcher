@@ -16,7 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        print(User.isSavedUser)
         let entry = User.isSavedUser ? TCMain() : UINavigationController(rootViewController: VCOnboardingMain())
         
         window?.rootViewController = entry

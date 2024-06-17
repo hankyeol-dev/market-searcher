@@ -11,6 +11,7 @@ enum VlabelType {
     case impact
     case normal
     case sub
+    case logo
 }
 
 class VLabel: UILabel {
@@ -35,6 +36,8 @@ class VLabel: UILabel {
             font = ._md
         case .sub:
             font = ._xs
+        case .logo:
+            font = ._logo
         }
     }
     
@@ -44,5 +47,9 @@ class VLabel: UILabel {
     
     func changeFont(_ f: UIFont) {
         font = f
+    }
+    
+    func changeAlignment(_ a: NSTextAlignment) {
+        textAlignment = a
     }
 }

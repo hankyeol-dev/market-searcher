@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class VButtonUpdateImage: UIView {
+class VUpdateProfileImgButton: UIView {
     
     let cameraBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
     
@@ -35,4 +35,5 @@ class VButtonUpdateImage: UIView {
         cameraBtn.tintColor = ._white
     }
 
+    
 }

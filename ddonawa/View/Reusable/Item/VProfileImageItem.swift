@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class VProfileImageItem: UICollectionViewCell {
-    let item = VProfileImage(selectedImage: UIImage.profile0)
+    private let item = VProfileImage(selectedImage: UIImage.profile0)
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -23,7 +23,7 @@ class VProfileImageItem: UICollectionViewCell {
 }
 
 extension VProfileImageItem {
-    func configureImage() {
+    private func configureImage() {
         contentView.addSubview(item)
         
         item.setSize((UIScreen.main.bounds.width - 80) / 4)

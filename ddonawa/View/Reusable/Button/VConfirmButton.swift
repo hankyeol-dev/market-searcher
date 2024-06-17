@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VButton: UIButton {
+class VConfirmButton: UIButton {
     
     convenience init(_ btnText: String) {
         self.init(frame: .zero)

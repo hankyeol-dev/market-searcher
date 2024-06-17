@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class VCSelectProfileImage: UIViewController {
+class VCSelectProfileImage: VCMain {
     private lazy var selectedId = 0
     
-    private let profileView = VProfile(viewType: .onlyProfileImage, isNeedToRandom: false, imageArray: nil)
-    private let profileImageUpdateView = VButtonUpdateImage()
+    private let profile = VProfile(viewType: .onlyProfileImage, isNeedToRandom: false, imageArray: nil)
+    private let profileImgUpdateImg = VUpdateProfileImgButton()
     private let profileImageUpdateButton = UIButton()
     private let profileImageCollection = {
         let l = UICollectionViewFlowLayout()
@@ -26,12 +26,13 @@ class VCSelectProfileImage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        
         configureNavigation()
         configureSubView()
         configureLayout()
         configureCollection()
     }
+
 }
 
 extension VCSelectProfileImage {
@@ -40,21 +41,23 @@ extension VCSelectProfileImage {
         leftItem.tintColor = ._black
         configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: leftItem, right: nil)
     }
+    
     func configureSubView() {
-        view.addSubview(profileView)
-        view.addSubview(profileImageUpdateView)
-        profileImageUpdateView.addSubview(profileImageUpdateButton)
-        view.addSubview(profileImageCollection)
+        [profile, profileImgUpdateImg, profileImageCollection].forEach {
+            view.addSubview($0)
+        }
+        profileImgUpdateImg.addSubview(profileImageUpdateButton)
     }
+    
     func configureLayout() {
-        profileView.snp.makeConstraints {
+        profile.snp.makeConstraints {
             $0.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(Figure._profile_lg)
         }
         
-        profileImageUpdateView.snp.makeConstraints {
-            $0.centerX.equalTo(profileView.snp.centerX).offset(44)
-            $0.bottom.equalTo(profileView.snp.bottom).inset(20)
+        profileImgUpdateImg.snp.makeConstraints {
+            $0.centerX.equalTo(profile.snp.centerX).offset(44)
+            $0.bottom.equalTo(profile.snp.bottom).inset(20)
             $0.size.equalTo(36)
         }
         
@@ -64,7 +67,7 @@ extension VCSelectProfileImage {
         
         profileImageCollection.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalToSuperview()
-            $0.top.equalTo(profileView.snp.bottom)
+            $0.top.equalTo(profile.snp.bottom)
         }
     }
 }
@@ -72,7 +75,7 @@ extension VCSelectProfileImage {
 extension VCSelectProfileImage {
     func setProfileImage(_ profileImage: ProfileImage) {
         selectedId = profileImage.id
-        profileView.setImage(profileImage)
+        profile.setImage(profileImage)
     }
     
     @objc
@@ -96,7 +99,7 @@ extension VCSelectProfileImage: UICollectionViewDelegate, UICollectionViewDataSo
         let item = profileImageCollection.dequeueReusableCell(withReuseIdentifier: VProfileImageItem.id, for: indexPath) as! VProfileImageItem
         
         item.setProfileImage(
-            mappingProfileImageArrayBySelectedId(selectedId)[indexPath.row],
+            _mappingProfileImageArrayBySelectedId(selectedId)[indexPath.row],
             isSelected: indexPath.row == selectedId
         )
         
@@ -106,7 +109,7 @@ extension VCSelectProfileImage: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedId = indexPath.row
         
-        profileView.setImage(getProfileImageById(selectedId))
+        profile.setImage(getProfileImageById(selectedId))
         profileImageCollection.reloadSections(IndexSet(integer: 0))
     }
 }

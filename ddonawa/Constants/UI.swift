@@ -27,6 +27,7 @@ extension UIFont {
     static let _mdBold = UIFont.boldSystemFont(ofSize: 14)
     static let _lgBold = UIFont.boldSystemFont(ofSize: 15)
     static let _xlBold = UIFont.boldSystemFont(ofSize: 16)
+    static let _logo = UIFont.boldSystemFont(ofSize: 32)
 }
 
 extension UIImage {

@@ -9,25 +9,20 @@ import UIKit
 
 import SnapKit
 
-class VCOnboardingMain: UIViewController {
+class VCOnboardingMain: VCMain {
     
-    private let logo = VLogo(Texts.APP_NAME.rawValue)
-    private lazy var img = {
-        let i = UIImageView(image: ._launch)
-        i.contentMode = .scaleAspectFill
-        return i
-    }()
-    private let btn = VButton(Texts.Buttons.ONBOARDING_START.rawValue)
+    private let logo = VLabel(Texts.APP_NAME.rawValue, tColor: ._main, tType: .logo)
+    private let img = UIImageView(image: UIImage._launch)
+    private let btn = VConfirmButton(Texts.Buttons.ONBOARDING_START.rawValue)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         
         configureSubView()
         configureLayout()
-        configureAction()
+        configureUI()
+        configureAddAction()
     }
-    
    
 }
 
@@ -54,15 +49,20 @@ extension VCOnboardingMain {
             $0.height.equalTo(56)
         }
     }
+    
+    private func configureUI() {
+        logo.changeAlignment(.center)
+        img.contentMode = .scaleAspectFill
+    }
+    
+    private func configureAddAction() {
+        btn.addTarget(self, action: #selector(presentVC), for: .touchUpInside)
+    }
 }
 
 extension VCOnboardingMain {
-    func configureAction() {
-        btn.addTarget(self, action: #selector(presentVC), for: .touchUpInside)
-    }
-    
     @objc
-    func presentVC(_ sender: UIButton) {
+    private func presentVC(_ sender: UIButton) {
         navigationController?.pushViewController(VCSettingProfile(), animated: true)
     }
 }
