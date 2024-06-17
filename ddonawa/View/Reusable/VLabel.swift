@@ -41,4 +41,8 @@ class VLabel: UILabel {
     func changeLabelText(_ t: String) {
         text = t
     }
+    
+    func changeFont(_ f: UIFont) {
+        font = f
+    }
 }

@@ -30,6 +30,10 @@
 		815E65382C1B3A6E000185D7 /* VButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65372C1B3A6E000185D7 /* VButton.swift */; };
 		815E653A2C1BC1A9000185D7 /* VLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E65392C1BC1A9000185D7 /* VLogo.swift */; };
 		815E653C2C1BC488000185D7 /* VUnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E653B2C1BC488000185D7 /* VUnderlinedTextField.swift */; };
+		81D18EC22C1FAFA500480184 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D18EC12C1FAFA500480184 /* Table.swift */; };
+		81D18EC42C1FB0A400480184 /* VSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D18EC32C1FB0A400480184 /* VSettingCell.swift */; };
+		81D18EC62C1FB5EA00480184 /* forAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D18EC52C1FB5EA00480184 /* forAlert.swift */; };
+		81D18EC82C1FB95E00480184 /* forSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D18EC72C1FB95E00480184 /* forSegue.swift */; };
 		81DC84AE2C1BF0DF00730BAC /* VProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84AD2C1BF0DF00730BAC /* VProfile.swift */; };
 		81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */; };
 		81DC84B22C1BFEC300730BAC /* VButtonUpdateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84B12C1BFEC300730BAC /* VButtonUpdateImage.swift */; };
@@ -76,6 +80,10 @@
 		815E65372C1B3A6E000185D7 /* VButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VButton.swift; sourceTree = "<group>"; };
 		815E65392C1BC1A9000185D7 /* VLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLogo.swift; sourceTree = "<group>"; };
 		815E653B2C1BC488000185D7 /* VUnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VUnderlinedTextField.swift; sourceTree = "<group>"; };
+		81D18EC12C1FAFA500480184 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		81D18EC32C1FB0A400480184 /* VSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSettingCell.swift; sourceTree = "<group>"; };
+		81D18EC52C1FB5EA00480184 /* forAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forAlert.swift; sourceTree = "<group>"; };
+		81D18EC72C1FB95E00480184 /* forSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forSegue.swift; sourceTree = "<group>"; };
 		81DC84AD2C1BF0DF00730BAC /* VProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VProfile.swift; sourceTree = "<group>"; };
 		81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VProfileImage.swift; sourceTree = "<group>"; };
 		81DC84B12C1BFEC300730BAC /* VButtonUpdateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VButtonUpdateImage.swift; sourceTree = "<group>"; };
@@ -139,9 +147,9 @@
 				815E650C2C1AD510000185D7 /* Constants */,
 				815E64F52C1AD433000185D7 /* AppDelegate.swift */,
 				815E64F72C1AD433000185D7 /* SceneDelegate.swift */,
+				815E650F2C1AD90F000185D7 /* ENV.swift */,
 				815E64FE2C1AD434000185D7 /* Assets.xcassets */,
 				815E65002C1AD434000185D7 /* LaunchScreen.storyboard */,
-				815E650F2C1AD90F000185D7 /* ENV.swift */,
 				815E65032C1AD434000185D7 /* Info.plist */,
 			);
 			path = ddonawa;
@@ -154,6 +162,7 @@
 				815E652A2C1B36E2000185D7 /* Icons.swift */,
 				815E652C2C1B36F5000185D7 /* Figure.swift */,
 				815E652E2C1B37D6000185D7 /* Texts.swift */,
+				81D18EC12C1FAFA500480184 /* Table.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -197,6 +206,8 @@
 				81DC84B32C1C078600730BAC /* forRandomValue.swift */,
 				81DC84C22C1C4EB000730BAC /* forProfileImage.swift */,
 				81DC84D42C1D75DF00730BAC /* forLabel.swift */,
+				81D18EC52C1FB5EA00480184 /* forAlert.swift */,
+				81D18EC72C1FB95E00480184 /* forSegue.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -235,6 +246,7 @@
 				81DC84C62C1D1C0D00730BAC /* VRecentSearchCell.swift */,
 				81DC84CA2C1D534800730BAC /* VFilterButton.swift */,
 				81DC84CC2C1D60D700730BAC /* VSeachingItem.swift */,
+				81D18EC32C1FB0A400480184 /* VSettingCell.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -362,12 +374,16 @@
 				815E65322C1B38E0000185D7 /* VCOnboardingMain.swift in Sources */,
 				81DC84B42C1C078600730BAC /* forRandomValue.swift in Sources */,
 				815E651D2C1AF3CB000185D7 /* forArray.swift in Sources */,
+				81D18EC42C1FB0A400480184 /* VSettingCell.swift in Sources */,
 				81DC84B62C1C1BD000730BAC /* VIndicatingLabel.swift in Sources */,
+				81D18EC82C1FB95E00480184 /* forSegue.swift in Sources */,
 				815E651A2C1AEABC000185D7 /* User.swift in Sources */,
 				81DC84C12C1C471400730BAC /* ProfileImage.swift in Sources */,
 				815E652D2C1B36F5000185D7 /* Figure.swift in Sources */,
+				81D18EC22C1FAFA500480184 /* Table.swift in Sources */,
 				815E651F2C1AF5CA000185D7 /* forAPI.swift in Sources */,
 				815E65352C1B39AA000185D7 /* forVC.swift in Sources */,
+				81D18EC62C1FB5EA00480184 /* forAlert.swift in Sources */,
 				815E65152C1AE831000185D7 /* Product.swift in Sources */,
 				815E64F62C1AD433000185D7 /* AppDelegate.swift in Sources */,
 				81DC84CD2C1D60D700730BAC /* VSeachingItem.swift in Sources */,

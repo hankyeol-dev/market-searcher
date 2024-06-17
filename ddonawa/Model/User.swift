@@ -13,13 +13,21 @@ struct User: Codable {
     private var image: ProfileImage
     private var liked: [ProductUserLiked]
     private var recentSearch: [String]
+    private var signDate: String
     private static var key = "user"
     
-    init(nickname: String, image: ProfileImage, liked: [ProductUserLiked] = [], recentSearch: [String] = []) {
+    init(
+        nickname: String,
+        image: ProfileImage,
+        liked: [ProductUserLiked] = [],
+        recentSearch: [String] = [],
+        date: String = _genFormattedDate()
+    ) {
         self.nickname = nickname
         self.image = image
         self.liked = liked
         self.recentSearch = recentSearch
+        self.signDate = date
     }
     
     var getOrChangeNick: String {
@@ -50,6 +58,10 @@ struct User: Codable {
         return self.recentSearch
     }
     
+    var getSignedDate: String {
+        return self.signDate
+    }
+    
     static var isSavedUser: Bool {
         return UserDefaults.standard.object(forKey: User.key) != nil
     }
@@ -68,6 +80,7 @@ struct User: Codable {
     
     static var deleteUser: Void {
         UserDefaults.standard.removeObject(forKey: User.key)
+        UserDefaults.standard.removeObject(forKey: <#T##String#>)
     }
     
     mutating func isInLiked(_ productId: String) -> Bool {

@@ -50,4 +50,11 @@ enum Texts: String {
         case SETTING = "또나와 설정"
         case SEARCHING_TOTAL_COUNTS = "개의 검색 결과"
     }
+    
+    enum Alert: String {
+        case TITLE = "탈퇴하기"
+        case MESSAGE = "탈퇴를 하면 데이터가 모두 초기화됩니다. 탈퇴 하시겠습니까?"
+        case CONFIRM = "확인"
+        case CANCEL = "취소"
+    }
 }

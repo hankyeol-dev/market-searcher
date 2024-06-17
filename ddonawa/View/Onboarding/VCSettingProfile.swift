@@ -122,9 +122,7 @@ extension VCSettingProfile {
             image: ProfileImage(
                 id: selectedImageId,
                 sourceName: getProfileImageById(selectedImageId).sourceName))
-        print(User.getOrSaveUser)
-        print(User.isSavedUser)
-        dismissViewStack(TCMain())
+        _dismissViewStack(TCMain())
     }
     
     func setSelectedImageId(_ id: Int) {

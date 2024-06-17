@@ -16,7 +16,11 @@ enum ViewType {
 
 class VProfile: UIView {
     private lazy var selectedImageId = 0
-    private var profileImage = VProfileImage(selectedImage: UIImage.profile10)
+    private let profileImage = VProfileImage(selectedImage: UIImage.profile10)
+    private let profileInfoStack = UIStackView()
+    private let nameLabel = VLabel("asdf", tType: .impact)
+    private let dateLabel = VLabel("asfdas", tColor: ._gray_md, tType: .normal)
+    var editButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,7 +60,6 @@ extension VProfile {
     }
     
     private func onlyProfileImage() {
-        
         profileImage.setSize(Figure._profileImg_lg)
         profileImage.setBorder(.modify)
         
@@ -73,12 +76,34 @@ extension VProfile {
         profileImage.setSize(Figure._profileImg_sm)
         profileImage.setBorder(.noneModify)
         
+        addSubview(profileInfoStack)
+        profileInfoStack.addArrangedSubview(nameLabel)
+        profileInfoStack.addArrangedSubview(dateLabel)
+        addSubview(editButton)
+
         profileImage.snp.makeConstraints {
             $0.size.equalTo(Figure._profileImg_sm)
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(self.safeAreaLayoutGuide).inset(24)
         }
+        profileInfoStack.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(profileImage.snp.trailing).offset(24)
+            $0.trailing.equalTo(editButton.snp.leading).inset(24)
+        }
+        editButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.size.equalTo(24)
+            $0.trailing.equalTo(self.safeAreaLayoutGuide).inset(24)
+        }
         
+        profileInfoStack.axis = .vertical
+        profileInfoStack.spacing = 2
+        profileInfoStack.distribution = .fillEqually
+        nameLabel.changeFont(._xlBold)
+        editButton.setImage(Icons._rightArrow, for: .normal)
+        editButton.tintColor = ._gray_lg
+        setUserData()
     }
     
     func setImage(_ profileImage: ProfileImage) {
@@ -89,4 +114,10 @@ extension VProfile {
         return selectedImageId
     }
     
+    private func setUserData() {
+        let user = User.getOrSaveUser
+        profileImage.image = UIImage(named: user.getOrChangeImage.sourceName)
+        nameLabel.changeLabelText(user.getOrChangeNick)
+        dateLabel.changeLabelText("\(user.getSignedDate) 가입")
+    }
 }

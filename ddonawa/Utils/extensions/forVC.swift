@@ -39,15 +39,7 @@ extension UIViewController: ID {
         return leftItem
     }
     
-    func dismissViewStack(_ vc: UIViewController) {
-        let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = scene?.delegate as? SceneDelegate
-        
-        let window = sceneDelegate?.window
-        
-        window?.rootViewController = UINavigationController(rootViewController: vc)
-        window?.makeKeyAndVisible()
-    }
+    
 }
 
 extension UIView: ID {
