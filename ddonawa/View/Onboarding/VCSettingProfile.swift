@@ -145,7 +145,11 @@ extension VCSettingProfile {
             image: ProfileImage(
                 id: selectedImageId,
                 sourceName: getProfileImageById(selectedImageId).sourceName))
-        _dismissViewStack(UINavigationController(rootViewController: VCSettingMain()))
+        
+        let tc = TCMain()
+        tc.selectedIndex = 1
+        
+        _dismissViewStack(tc)
     }
     
     func setSelectedImageId(_ id: Int) {

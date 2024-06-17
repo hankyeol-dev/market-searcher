@@ -18,7 +18,7 @@
     - [x] User
     - [x] Product
     - [x] for UserDefaults Controller
-    - [ ] for API mapping
+    - [x] for API mapping
     - [x] for Array
     - [ ] for API Networking
     
