@@ -54,6 +54,7 @@
 		81DC84D32C1D68B000730BAC /* VCSettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84D22C1D68B000730BAC /* VCSettingMain.swift */; };
 		81DC84D52C1D75DF00730BAC /* forLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84D42C1D75DF00730BAC /* forLabel.swift */; };
 		81DC84D72C1D977600730BAC /* VCSearchingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84D62C1D977600730BAC /* VCSearchingDetail.swift */; };
+		81ED23212C2067B800CE51F1 /* VRandomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED23202C2067B800CE51F1 /* VRandomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		81DC84D22C1D68B000730BAC /* VCSettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSettingMain.swift; sourceTree = "<group>"; };
 		81DC84D42C1D75DF00730BAC /* forLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forLabel.swift; sourceTree = "<group>"; };
 		81DC84D62C1D977600730BAC /* VCSearchingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSearchingDetail.swift; sourceTree = "<group>"; };
+		81ED23202C2067B800CE51F1 /* VRandomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRandomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				815E65372C1B3A6E000185D7 /* VConfirmButton.swift */,
 				81DC84B12C1BFEC300730BAC /* VUpdateProfileImgButton.swift */,
 				81DC84CA2C1D534800730BAC /* VFilterButton.swift */,
+				81ED23202C2067B800CE51F1 /* VRandomButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				815E652D2C1B36F5000185D7 /* Figure.swift in Sources */,
 				81D18EC22C1FAFA500480184 /* Table.swift in Sources */,
 				815E651F2C1AF5CA000185D7 /* forAPI.swift in Sources */,
+				81ED23212C2067B800CE51F1 /* VRandomButton.swift in Sources */,
 				815E65352C1B39AA000185D7 /* forVC.swift in Sources */,
 				81D18EC62C1FB5EA00480184 /* forAlert.swift in Sources */,
 				815E65152C1AE831000185D7 /* Product.swift in Sources */,

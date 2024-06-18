@@ -7,22 +7,22 @@
 
 import UIKit
 
-func genProfileImageArray() -> [ProfileImage] {
+func _genProfileImageArray() -> [ProfileImage] {
     return UIImage.profile.allCases.enumerated().map { (idx, v) in
         ProfileImage(id: idx, sourceName: v.rawValue)
     }
 }
 
-func getProfileImageById(_ id: Int) -> ProfileImage {
-    return _filter(genProfileImageArray(), {
+func _getProfileImageById(_ id: Int) -> ProfileImage {
+    return _filter(_genProfileImageArray(), {
         $0.id == id
     })[0]
 }
 
 func _mappingProfileImageArrayBySelectedId(_ id: Int) -> [ProfileImage] {
-    let selected = getProfileImageById(id)
+    let selected = _getProfileImageById(id)
     
-    var array = _filter(genProfileImageArray(), {
+    var array = _filter(_genProfileImageArray(), {
         $0.id != id
     })
 

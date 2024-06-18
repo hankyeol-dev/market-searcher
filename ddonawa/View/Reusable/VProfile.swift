@@ -35,7 +35,7 @@ class VProfile: UIView {
         
         if isNeedToRandom {
             guard let imageArray else { return }
-            let presentImage = getRandomElement(imageArray)
+            let presentImage = RandomGenerator._getRandomElement(imageArray)
             selectedImageId = presentImage.id
             
             profileImage.setImage(presentImage)

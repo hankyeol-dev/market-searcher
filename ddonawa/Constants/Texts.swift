@@ -25,6 +25,7 @@ enum Texts: String {
     enum Buttons: String {
         case ONBOARDING_START = "시작하기"
         case ONBOARDING_CONFIRM = "완료"
+        case ONBOARDING_RANDOM_NICKNAME = "랜덤 생성"
         
         case TABBAR_0 = "검색"
         case TABBAR_1 = "설정"

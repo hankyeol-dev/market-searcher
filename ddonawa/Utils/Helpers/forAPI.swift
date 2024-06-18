@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 enum SortType: String {
     case sim = "sim"
     case date = "date"
@@ -14,6 +15,5 @@ enum SortType: String {
 }
 
 func _mappingURL(query: String, start: Int, sort: SortType) -> String {
-    
     return API.getBaseURL + "query=\(query)&start=\(String(start))&sort=\(sort.rawValue)"
 }

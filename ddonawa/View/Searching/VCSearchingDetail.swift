@@ -46,6 +46,7 @@ extension VCSearchingDetail {
         web.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        
         web.load(URLRequest(url: URL(string: itemWebLink)!))
     }
 }

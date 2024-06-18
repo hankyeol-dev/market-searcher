@@ -109,7 +109,7 @@ extension VCSelectProfileImage: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedId = indexPath.row
         
-        profile.setImage(getProfileImageById(selectedId))
+        profile.setImage(_getProfileImageById(selectedId))
         profileImageCollection.reloadSections(IndexSet(integer: 0))
     }
 }

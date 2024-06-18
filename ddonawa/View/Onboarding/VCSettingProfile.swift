@@ -16,11 +16,12 @@ class VCSettingProfile: VCMain {
     private let profile = VProfile(
         viewType: .onlyProfileImage,
         isNeedToRandom: true,
-        imageArray: genProfileImageArray()
+        imageArray: _genProfileImageArray()
     )
     private let profileImgUpdateImg = VUpdateProfileImgButton()
     private let profileImageUpdateButton = UIButton()
     private let nicknameField = VUnderlinedTextField(Texts.Placeholders.ONBOARDING_NICK.rawValue)
+    private let randomButton = UIButton()
     private let indicator = VIndicatingLabel()
     private let confirmButton = VConfirmButton(Texts.Buttons.ONBOARDING_CONFIRM.rawValue)
     
@@ -30,6 +31,7 @@ class VCSettingProfile: VCMain {
         configureSubView()
         configureLayout()
         configureAddAction()
+        configureConfirmButton()
         configureTextField()
     }
     
@@ -45,7 +47,7 @@ class VCSettingProfile: VCMain {
 extension VCSettingProfile {
     
     func configureSubView() {
-        [profile, profileImgUpdateImg, nicknameField, indicator, confirmButton].forEach {
+        [profile, profileImgUpdateImg, nicknameField, randomButton , indicator, confirmButton].forEach {
             view.addSubview($0)
         }
         profileImgUpdateImg.addSubview(profileImageUpdateButton)
@@ -69,9 +71,19 @@ extension VCSettingProfile {
         
         nicknameField.snp.makeConstraints {
             $0.top.equalTo(profile.snp.bottom).offset(40)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(44)
         }
+        
+        randomButton.snp.makeConstraints {
+            $0.top.equalTo(profile.snp.bottom).offset(40)
+            $0.leading.equalTo(nicknameField.snp.trailing).offset(12)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.height.equalTo(44)
+            $0.size.equalTo(100)
+        }
+        
+        randomButton.configuration = ._roundFilledButton(Texts.Buttons.ONBOARDING_RANDOM_NICKNAME.rawValue)
         
         indicator.snp.makeConstraints {
             $0.top.equalTo(nicknameField.snp.bottom).offset(8)
@@ -89,6 +101,7 @@ extension VCSettingProfile {
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
         profileImageUpdateButton.addTarget(self, action: #selector(presentProfileImageSelectVC), for: .touchUpInside)
+        randomButton.addTarget(self, action: #selector(generateRandomProfile), for: .touchUpInside)
     }
     
     
@@ -120,7 +133,7 @@ extension VCSettingProfile {
     @objc
     func presentProfileImageSelectVC() {
         let vc = VCSelectProfileImage()
-        vc.setProfileImage(getProfileImageById(profile.getPresentImage()))
+        vc.setProfileImage(_getProfileImageById(profile.getPresentImage()))
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -132,7 +145,7 @@ extension VCSettingProfile {
             nickname: nickname,
             image: ProfileImage(
                 id: selectedImageId,
-                sourceName: getProfileImageById(selectedImageId).sourceName))
+                sourceName: _getProfileImageById(selectedImageId).sourceName))
         _dismissViewStack(TCMain())
     }
     
@@ -143,7 +156,7 @@ extension VCSettingProfile {
         user.getOrChangeNick = nickname
         user.getOrChangeImage = ProfileImage(
             id: selectedImageId,
-            sourceName: getProfileImageById(selectedImageId).sourceName)
+            sourceName: _getProfileImageById(selectedImageId).sourceName)
         
         User.getOrSaveUser = user
         
@@ -153,9 +166,23 @@ extension VCSettingProfile {
         _dismissViewStack(tc)
     }
     
+    @objc
+    func generateRandomProfile() {
+        let nick = RandomGenerator._getRandomNick()
+        let img = RandomGenerator._getRandomElement(_genProfileImageArray())
+       
+        nicknameField.text = nick
+        profile.setImage(img)
+        selectedImageId = img.id
+        
+        
+        indicator.isSuccess()
+        confirmButton.changeColorByEnabled()
+    }
+    
     func setSelectedImageId(_ id: Int) {
         selectedImageId = id
-        profile.setImage(getProfileImageById(selectedImageId))
+        profile.setImage(_getProfileImageById(selectedImageId))
     }
 }
 
@@ -214,7 +241,7 @@ extension VCSettingProfile: UITextFieldDelegate {
         } else {
             indicator.isSuccess()
             confirmButton.changeColorByEnabled()
-            configureConfirmButton()
+            
         }
         return true
     }
