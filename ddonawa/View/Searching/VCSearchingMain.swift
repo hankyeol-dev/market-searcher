@@ -43,6 +43,10 @@ class VCSearchingMain: VCMain {
     }
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
+    }
 }
 
 extension VCSearchingMain {
@@ -99,6 +103,7 @@ extension VCSearchingMain: UISearchBarDelegate {
             let vc = VCSearchingList()
             vc.setVCWithData(text)
             searchBar.text = ""
+            view.endEditing(true)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

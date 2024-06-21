@@ -120,7 +120,7 @@
     
     - [x] 1에서 프로필 닉네임 랜덤 생성 버튼 추가
     - [ ] 4에서 API로 검색 결과 Fetching 중인 경우 Skeleton UI 보여주기
-    - [ ] 4에서 API 통신 결과가 Error 일 경우, 뷰 전환 없이 에러난 상태 보여주기 (ex. toast)
+    - [x] 4에서 API 통신 결과가 Error 일 경우 에러난 상태 보여주기 (ex. toast)
     - [ ] 6에서 장바구니 찜 셀 터치시 4의 상품 검색 페이지처럼 보여주기 
     - [ ] for API Networking (async, await, task, do-try 반영해보기)
     

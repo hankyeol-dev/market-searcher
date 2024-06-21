@@ -37,6 +37,7 @@
 		81D18EC82C1FB95E00480184 /* forSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D18EC72C1FB95E00480184 /* forSegue.swift */; };
 		81DBEA1B2C25046E0087016A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBEA1A2C25046E0087016A /* UserService.swift */; };
 		81DBEA1D2C2509B10087016A /* forValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBEA1C2C2509B10087016A /* forValidation.swift */; };
+		81DBEA202C251B310087016A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 81DBEA1F2C251B310087016A /* Toast */; };
 		81DC84AE2C1BF0DF00730BAC /* VProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84AD2C1BF0DF00730BAC /* VProfile.swift */; };
 		81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */; };
 		81DC84B22C1BFEC300730BAC /* VUpdateProfileImgButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84B12C1BFEC300730BAC /* VUpdateProfileImgButton.swift */; };
@@ -117,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81DBEA202C251B310087016A /* Toast in Frameworks */,
 				815E65292C1B2D39000185D7 /* Kingfisher in Frameworks */,
 				815E65182C1AEA31000185D7 /* Alamofire in Frameworks */,
 				815E65262C1B2D2D000185D7 /* SnapKit in Frameworks */,
@@ -338,6 +340,7 @@
 				815E65172C1AEA31000185D7 /* Alamofire */,
 				815E65252C1B2D2D000185D7 /* SnapKit */,
 				815E65282C1B2D39000185D7 /* Kingfisher */,
+				81DBEA1F2C251B310087016A /* Toast */,
 			);
 			productName = ddonawa;
 			productReference = 815E64F22C1AD433000185D7 /* ddonawa.app */;
@@ -371,6 +374,7 @@
 				815E65162C1AEA31000185D7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				815E65242C1B2D2D000185D7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				815E65272C1B2D39000185D7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				81DBEA1E2C251B310087016A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 815E64F32C1AD433000185D7 /* Products */;
 			projectDirPath = "";
@@ -693,6 +697,14 @@
 				minimumVersion = 7.12.0;
 			};
 		};
+		81DBEA1E2C251B310087016A /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -710,6 +722,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 815E65272C1B2D39000185D7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		81DBEA1F2C251B310087016A /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81DBEA1E2C251B310087016A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

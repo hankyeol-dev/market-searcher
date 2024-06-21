@@ -61,4 +61,8 @@ enum Texts: String {
         case CONFIRM = "확인"
         case CANCEL = "취소"
     }
+    
+    enum Error: String {
+        case NETWORKING_ERROR = "뭔가 잠시 문제가 발생했어요. \n 빠르게 복구할게요 :)"
+    }
 }

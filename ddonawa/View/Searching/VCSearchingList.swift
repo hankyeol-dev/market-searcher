@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Alamofire
+import Toast
 
 class VCSearchingList: VCMain {
     private lazy var query = ""
@@ -164,6 +165,7 @@ extension VCSearchingList {
                 }
             case .failure(let e):
                 print(e)
+                self.view.makeToast(Texts.Error.NETWORKING_ERROR.rawValue, duration: 2.0, position: .bottom)
             }
         }
     }
