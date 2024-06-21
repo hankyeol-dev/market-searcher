@@ -9,9 +9,7 @@ import UIKit
 import SnapKit
 
 class VCSettingProfile: VCMain {
-    var userSelectedId: Int?
     lazy var selectedImageId = 0
-    private let isSavedUser = User.isSavedUser
     
     private let profile = VProfile(
         viewType: .onlyProfileImage,
@@ -113,11 +111,13 @@ extension VCSettingProfile {
     
     func configureViewAtUpdate() {
         let user = User.getOrSaveUser
+        
         let rightSaveButton = UIBarButtonItem(title: Texts.Buttons.NAVIGATION_SAVE.rawValue, style: .plain, target: self, action: #selector(updateUser))
         rightSaveButton.tintColor = ._black
         
         configureNav(navTitle: Texts.Navigations.UPDATING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: rightSaveButton)
         
+        setSelectedImageId(user.getOrChangeImage.id)
         nicknameField.text = user.getOrChangeNick
         confirmButton.isHidden = true
     }
