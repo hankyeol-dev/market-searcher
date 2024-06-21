@@ -35,6 +35,8 @@
 		81D18EC22C1FAFA500480184 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D18EC12C1FAFA500480184 /* Table.swift */; };
 		81D18EC62C1FB5EA00480184 /* forAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D18EC52C1FB5EA00480184 /* forAlert.swift */; };
 		81D18EC82C1FB95E00480184 /* forSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D18EC72C1FB95E00480184 /* forSegue.swift */; };
+		81DBEA1B2C25046E0087016A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBEA1A2C25046E0087016A /* UserService.swift */; };
+		81DBEA1D2C2509B10087016A /* forValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBEA1C2C2509B10087016A /* forValidation.swift */; };
 		81DC84AE2C1BF0DF00730BAC /* VProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84AD2C1BF0DF00730BAC /* VProfile.swift */; };
 		81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */; };
 		81DC84B22C1BFEC300730BAC /* VUpdateProfileImgButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84B12C1BFEC300730BAC /* VUpdateProfileImgButton.swift */; };
@@ -86,6 +88,8 @@
 		81D18EC12C1FAFA500480184 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		81D18EC52C1FB5EA00480184 /* forAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forAlert.swift; sourceTree = "<group>"; };
 		81D18EC72C1FB95E00480184 /* forSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forSegue.swift; sourceTree = "<group>"; };
+		81DBEA1A2C25046E0087016A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		81DBEA1C2C2509B10087016A /* forValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forValidation.swift; sourceTree = "<group>"; };
 		81DC84AD2C1BF0DF00730BAC /* VProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VProfile.swift; sourceTree = "<group>"; };
 		81DC84AF2C1BF1F500730BAC /* VProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VProfileImage.swift; sourceTree = "<group>"; };
 		81DC84B12C1BFEC300730BAC /* VUpdateProfileImgButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VUpdateProfileImgButton.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				815E65142C1AE831000185D7 /* Product.swift */,
 				815E65192C1AEABC000185D7 /* User.swift */,
 				81DC84C02C1C471400730BAC /* ProfileImage.swift */,
+				81DBEA1A2C25046E0087016A /* UserService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				81DC84D42C1D75DF00730BAC /* forLabel.swift */,
 				81D18EC52C1FB5EA00480184 /* forAlert.swift */,
 				81D18EC72C1FB95E00480184 /* forSegue.swift */,
+				81DBEA1C2C2509B10087016A /* forValidation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -411,7 +417,9 @@
 				815E651D2C1AF3CB000185D7 /* forArray.swift in Sources */,
 				81DC84B62C1C1BD000730BAC /* VIndicatingLabel.swift in Sources */,
 				81D18EC82C1FB95E00480184 /* forSegue.swift in Sources */,
+				81DBEA1B2C25046E0087016A /* UserService.swift in Sources */,
 				815E651A2C1AEABC000185D7 /* User.swift in Sources */,
+				81DBEA1D2C2509B10087016A /* forValidation.swift in Sources */,
 				81DC84C12C1C471400730BAC /* ProfileImage.swift in Sources */,
 				815E652D2C1B36F5000185D7 /* Figure.swift in Sources */,
 				81D18EC22C1FAFA500480184 /* Table.swift in Sources */,

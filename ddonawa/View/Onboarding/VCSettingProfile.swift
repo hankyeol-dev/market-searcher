@@ -156,7 +156,8 @@ extension VCSettingProfile {
         user.getOrChangeNick = nickname
         user.getOrChangeImage = ProfileImage(
             id: selectedImageId,
-            sourceName: _getProfileImageById(selectedImageId).sourceName)
+            sourceName: _getProfileImageById(selectedImageId).sourceName
+        )
         
         User.getOrSaveUser = user
         
@@ -174,7 +175,6 @@ extension VCSettingProfile {
         nicknameField.text = nick
         profile.setImage(img)
         selectedImageId = img.id
-        
         
         indicator.isSuccess()
         confirmButton.changeColorByEnabled()
@@ -197,61 +197,29 @@ extension VCSettingProfile: UITextFieldDelegate {
         indicator.startEditing()
     }
     
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return false }
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let validator = NickValidationService.service
+        guard let text = textField.text else {return}
         
-        
-        if let char = string.cString(using: String.Encoding.utf8) {
-            let isBackSpace = strcmp(char, "\\b")
-            if (isBackSpace == -92) {
-                if text.count - 1 < 2 {
-                    indicator.isLowerThanTwo()
-                    confirmButton.changeColorByDisabled()
-                }
-                return true
-            }
-        }
-        
-        if text.isEmpty {
-            indicator.isEmpty()
-            confirmButton.changeColorByDisabled()
-        }
-        
-        if isContainsNumber(string) {
-            indicator.isContainsNumber()
-            confirmButton.changeColorByDisabled()
-            return false
-        }
-        
-        if isContainsSpecialLetter(string) {
-            indicator.isContainsSpecialLetter()
-            confirmButton.changeColorByDisabled()
-            return false
-        }
-        
-        if text.count + 1 > 10 {
-            nicknameField.endEditing(true)
-            return false
-        }
-        
-        if text.count + 1 < 2 {
-            indicator.isLowerThanTwo()
-            confirmButton.changeColorByDisabled()
-        } else {
+        do {
+            try validator.validateNickByTotal(text)
+            
             indicator.isSuccess()
             confirmButton.changeColorByEnabled()
-            
+        } catch NickValidationService.Errors.isEmpty {
+            indicator.isEmpty()
+            confirmButton.changeColorByDisabled()
+        } catch NickValidationService.Errors.isLowerThanTwo {
+            indicator.isLowerThanTwo()
+            confirmButton.changeColorByDisabled()
+        } catch NickValidationService.Errors.isContainNumber {
+            indicator.isContainsNumber()
+            confirmButton.changeColorByDisabled()
+        } catch NickValidationService.Errors.isContainSpecialLetter {
+            indicator.isContainsSpecialLetter()
+            confirmButton.changeColorByDisabled()
+        } catch {
+            confirmButton.changeColorByDisabled()
         }
-        return true
-    }
-    
-    
-    private func isContainsSpecialLetter(_ c: String) -> Bool {
-        return c == "@" || c == "#" || c == "$" || c == "%"
-    }
-    
-    private func isContainsNumber(_ c: String) -> Bool {
-        return Int(c) != nil
     }
 }

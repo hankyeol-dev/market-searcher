@@ -16,6 +16,7 @@ struct User: Codable {
     private var signDate: String
     private static var key = "user"
     
+    
     init(
         nickname: String,
         image: ProfileImage,
