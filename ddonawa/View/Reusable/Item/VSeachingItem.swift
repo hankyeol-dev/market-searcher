@@ -10,7 +10,8 @@ import SnapKit
 import Kingfisher
 
 class VSeachingItem: UICollectionViewCell {
-    private lazy var itemId: String = ""
+    private lazy var product: Product = Product(productId: "", title: "", mallName: "", productType: "", image: "", link: "", lprice: "")
+
     private let imgBack = UIView()
     private let img = UIImageView()
     private let pickButtonBack = UIView()
@@ -90,7 +91,7 @@ extension VSeachingItem {
 
 extension VSeachingItem {
     func setItemWithData(_ data: Product) {
-        self.itemId = data.productId
+        self.product = data
         img.kf.setImage(with: URL(string: data.image))
         pickButtonBack.backgroundColor = User.getOrSaveUser.isInLiked(data.productId) ? ._white : ._gray_lg.withAlphaComponent(0.8)
         pickButtonImg.image = User.getOrSaveUser.isInLiked(data.productId) ? UIImage.likeSelected : UIImage.likeUnselected
@@ -104,20 +105,22 @@ extension VSeachingItem {
     func togglePickButton() {
         var user = User.getOrSaveUser
         
-        if !user.isInLiked(self.itemId) {
+        if !user.isInLiked(product.productId) {
             // 좋아요 하지 않은 상태
             // 일단 UI 변경해주고
             pickButtonBack.backgroundColor = .systemBackground
             pickButtonImg.image = UIImage.likeSelected
             
             // 좋아요 리스트에 넣어주고
-            user.addLiked(ProductUserLiked(productId: self.itemId))
+            user.addLiked(
+                ProductUserLiked(productId: product.productId, image: product.image, title: product.title, lprice: product.lprice, link: product.link)
+            )
         } else {
             // 좋아요 했던 상태
             pickButtonBack.backgroundColor = ._gray_lg.withAlphaComponent(0.8)
             pickButtonImg.image = UIImage.likeUnselected
             
-            user.deleteLiked(self.itemId)
+            user.deleteLiked(product.productId)
         }
         
         User.getOrSaveUser = user

@@ -10,9 +10,7 @@ import WebKit
 import SnapKit
 
 class VCSearchingDetail: VCMain {
-    private lazy var itemId: String = ""
-    private lazy var itemName: String = ""
-    private lazy var itemWebLink: String = ""
+    private lazy var item: ProductUserLiked = ProductUserLiked(productId: "", image: "", title: "", lprice: "", link: "")
     
     private let web = WKWebView()
     
@@ -25,20 +23,17 @@ class VCSearchingDetail: VCMain {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let rightBarItem = UIBarButtonItem(image: User.getOrSaveUser.isInLiked(itemId) ? UIImage.likeSelected : UIImage.likeUnselected, style: .plain, target: self, action: #selector(toggleLikeButton))
+        let rightBarItem = UIBarButtonItem(image: User.getOrSaveUser.isInLiked(item.productId) ? UIImage.likeSelected : UIImage.likeUnselected, style: .plain, target: self, action: #selector(toggleLikeButton))
 
         rightBarItem.tintColor = ._gray_lg
         
-        configureNav(navTitle: itemName, left: genLeftGoBackBarButton(), right: rightBarItem)
+        configureNav(navTitle: _replaceHTMLTag(item.title), left: _genLeftGoBackBarButton(), right: rightBarItem)
     }
 }
 
 extension VCSearchingDetail {
     func setVCWithData(_ data: Product) {
-        itemId = data.productId
-        itemName = _replaceHTMLTag(data.title)
-        itemWebLink = data.link
-        
+        item = ProductUserLiked(productId: data.productId, image: data.image, title: data.title, lprice: data.lprice, link: data.link)
     }
     
     func configureWebView() {
@@ -47,7 +42,7 @@ extension VCSearchingDetail {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
-        web.load(URLRequest(url: URL(string: itemWebLink)!))
+        web.load(URLRequest(url: URL(string: item.link)!))
     }
 }
 
@@ -56,10 +51,12 @@ extension VCSearchingDetail {
     private func toggleLikeButton() {
         var user = User.getOrSaveUser
         
-        if !user.isInLiked(itemId) {
-            user.addLiked(ProductUserLiked(productId: itemId))
+        if !user.isInLiked(item.productId) {
+            user.addLiked(
+                ProductUserLiked(productId: item.productId, image: item.image, title: item.title, lprice: item.lprice, link: item.link)
+            )
         } else {
-            user.deleteLiked(itemId)
+            user.deleteLiked(item.productId)
         }
         
         User.getOrSaveUser = user

@@ -34,7 +34,7 @@ class VCSettingProfile: VCMain {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: nil)
+        configureNav(navTitle: Texts.Navigations.ONBOARDING_PROFILE_SETTING.rawValue, left: _genLeftGoBackBarButton(), right: nil)
         
         if ProfileImage.getOrSetId != 0 {
             self.setSelectedImageId(ProfileImage.getOrSetId)
@@ -115,7 +115,7 @@ extension VCSettingProfile {
         let rightSaveButton = UIBarButtonItem(title: Texts.Buttons.NAVIGATION_SAVE.rawValue, style: .plain, target: self, action: #selector(updateUser))
         rightSaveButton.tintColor = ._black
         
-        configureNav(navTitle: Texts.Navigations.UPDATING_PROFILE_SETTING.rawValue, left: genLeftGoBackBarButton(), right: rightSaveButton)
+        configureNav(navTitle: Texts.Navigations.UPDATING_PROFILE_SETTING.rawValue, left: _genLeftGoBackBarButton(), right: rightSaveButton)
         
         setSelectedImageId(user.getOrChangeImage.id)
         nicknameField.text = user.getOrChangeNick

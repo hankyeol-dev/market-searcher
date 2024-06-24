@@ -95,6 +95,10 @@ struct User: Codable {
         self.liked = _filter(self.liked, { $0.productId != productId })
     }
     
+    mutating func deleteAllLiked() {
+        self.liked = []
+    }
+    
     mutating func addRecentSearch(_ keyword: String) {
         self.recentSearch.append(keyword)
     }

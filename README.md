@@ -115,13 +115,15 @@
 
 ## Project Advanced Implementation Requirements
 
-<details open>
+<details>
     <summary>요구사항 보기</summary>
     
     - [x] 1에서 프로필 닉네임 랜덤 생성 버튼 추가
     - [ ] 4에서 API로 검색 결과 Fetching 중인 경우 Skeleton UI 보여주기
     - [x] 4에서 API 통신 결과가 Error 일 경우 에러난 상태 보여주기 (ex. toast)
-    - [ ] 6에서 장바구니 찜 셀 터치시 4의 상품 검색 페이지처럼 보여주기 
+    - [x] 6에서 장바구니 찜 갯수 보여주는 셀 터치시 해당하는 아이템으로 구성된 목록 UI 보여주기
+        - [x] 장바구니 찜 갯수가 0개일 경우 페이지 전환 안됨
+        - [x] 장바구니 찜 목록에서 삭제, 전체 목록 삭제 구현
     - [ ] for API Networking (async, await, task, do-try 반영해보기)
     
 </details>

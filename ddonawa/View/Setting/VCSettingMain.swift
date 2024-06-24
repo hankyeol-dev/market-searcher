@@ -83,6 +83,10 @@ extension VCSettingMain: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 && User.getOrSaveUser.getLiked.count != 0 {
+            navigationController?.pushViewController(VCLikedProductList(), animated: true)
+        }
+        
         if indexPath.row == tableList.count - 1 {
             _showAlert(
                 title: Texts.Alert.TITLE.rawValue,

@@ -9,6 +9,10 @@ import Foundation
 
 struct ProductUserLiked: Codable {
     let productId: String
+    let image: String
+    let title: String
+    let lprice: String
+    let link: String
 }
 
 struct Product: Decodable {

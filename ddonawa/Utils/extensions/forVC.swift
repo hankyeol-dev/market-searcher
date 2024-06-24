@@ -32,7 +32,7 @@ extension UIViewController: ID {
         }
     }
     
-    func genLeftGoBackBarButton() -> UIBarButtonItem {
+    func _genLeftGoBackBarButton() -> UIBarButtonItem {
         let leftItem = UIBarButtonItem(image: Icons._leftArrow, style: .plain, target: self, action: #selector(goBack))
         leftItem.tintColor = ._black
         

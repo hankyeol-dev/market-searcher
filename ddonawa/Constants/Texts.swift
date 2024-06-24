@@ -15,6 +15,7 @@ enum Texts: String {
     enum Navigations: String {
         case ONBOARDING_PROFILE_SETTING = "프로필 설정하기"
         case UPDATING_PROFILE_SETTING = "프로필 수정하기"
+        case LIKED_PRODUCT_LIST = "개의 상품"
     }
     
     enum Placeholders: String {
@@ -31,6 +32,7 @@ enum Texts: String {
         case TABBAR_1 = "설정"
         
         case NAVIGATION_SAVE = "저장"
+        case NAVIGATION_DELETE_ALL = "목록 삭제"
         
         case RECENTSEARCHING_DELETE_BTN = "전체 삭제"
         
@@ -57,7 +59,9 @@ enum Texts: String {
     
     enum Alert: String {
         case TITLE = "탈퇴하기"
-        case MESSAGE = "탈퇴를 하면 데이터가 모두 초기화됩니다. 탈퇴 하시겠습니까?"
+        case TITLE_DELETE_ALL = "찜한 상품 전체 삭제"
+        case MESSAGE = "탈퇴를 하면 데이터가 모두 초기화됩니다. \n 탈퇴 하시겠습니까?"
+        case MESSAGE_TITLE_DELETE_ALL = "장바구니에 찜한 상품을 모두 삭제합니다. \n 정말 삭제하시겠습니까?"
         case CONFIRM = "확인"
         case CANCEL = "취소"
     }

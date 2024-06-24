@@ -52,7 +52,7 @@ class VCSearchingList: VCMain {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureNav(navTitle: query, left: genLeftGoBackBarButton(), right: nil)
+        configureNav(navTitle: query, left: _genLeftGoBackBarButton(), right: nil)
         searchingCollection.reloadData()
     }
     
