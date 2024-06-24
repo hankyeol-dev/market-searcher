@@ -95,7 +95,7 @@ extension VCSearchingList {
     func setVCWithData(_ keyword: String) {
         query = keyword
         
-        fetchData(query: self.query, start: self.searchingStart, sort: self.sortType)
+        fetchData(query: query, start: searchingStart, sort: sortType)
     }
 }
 
@@ -150,11 +150,10 @@ extension VCSearchingList: UICollectionViewDelegate, UICollectionViewDataSource 
 
 extension VCSearchingList {
     private func fetchData(query: String, start: Int, sort: SortType) {
-        AF.request(_mappingURL(query: query, start: start, sort: sort), headers: API.getHeaders).responseDecodable(of: ProductResult.self){ res in
-            switch res.result {
-            case .success(let v):
+        FetchManager._fetch(
+            url: _mappingURL(query: query, start: searchingStart, sort: sort),
+            headers: API.getHeaders) { v in
                 self.searchingTotal = v.total
-                
                 if self.searchingTotal > self.searchingStart {
                     for i in v.items {
                         self.searchingList.append(i)
@@ -163,11 +162,9 @@ extension VCSearchingList {
                     self.searchCountLabel.changeLabelText("\(_formatString(String(v.total)))" + Texts.Menu.SEARCHING_TOTAL_COUNTS.rawValue)
                     self.searchingCollection.reloadSections(IndexSet(integer: 0))
                 }
-            case .failure(let e):
-                print(e)
+            } failHandler: { e in
                 self.view.makeToast(Texts.Error.NETWORKING_ERROR.rawValue, duration: 2.0, position: .bottom)
             }
-        }
     }
     
     @objc
@@ -184,6 +181,7 @@ extension VCSearchingList {
         self.searchingTotal = 0
         self.searchingList = []
         self.sortType = filterButtonSortTypes[sender.tag]
-        fetchData(query: self.query, start: self.searchingStart, sort: filterButtonSortTypes[sender.tag])
+        
+        fetchData(query: query, start: searchingStart, sort: sortType)
     }
 }

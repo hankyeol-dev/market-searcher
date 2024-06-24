@@ -84,7 +84,17 @@ extension VCSettingMain: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == tableList.count - 1 {
-            present(_showAlert(), animated: true)
+            _showAlert(
+                title: Texts.Alert.TITLE.rawValue,
+                message: Texts.Alert.MESSAGE.rawValue,
+                actions: [
+                    UIAlertAction(title: Texts.Alert.CONFIRM.rawValue, style: .default, handler: { a in
+                        User.deleteUser
+                        _dismissViewStack(UINavigationController(rootViewController: VCOnboardingMain()))
+                    }),
+                    UIAlertAction(title: Texts.Alert.CANCEL.rawValue, style: .cancel)
+                ],
+                animated: true)
             table.reloadSections(IndexSet(integer: 0), with: .none)
         }
     }

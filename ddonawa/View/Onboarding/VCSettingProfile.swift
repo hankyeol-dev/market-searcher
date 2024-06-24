@@ -198,25 +198,28 @@ extension VCSettingProfile: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        let validator = NickValidationService.service
         guard let text = textField.text else {return}
         
         do {
-            try validator.validateNickByTotal(text)
+            try NickValidationService.validateNickname(text)
             
             indicator.isSuccess()
             confirmButton.changeColorByEnabled()
+            
         } catch NickValidationService.Errors.isEmpty {
             indicator.isEmpty()
             confirmButton.changeColorByDisabled()
         } catch NickValidationService.Errors.isLowerThanTwo {
-            indicator.isLowerThanTwo()
+            indicator.isLowerThanTwoOrOverTen()
             confirmButton.changeColorByDisabled()
         } catch NickValidationService.Errors.isContainNumber {
             indicator.isContainsNumber()
             confirmButton.changeColorByDisabled()
         } catch NickValidationService.Errors.isContainSpecialLetter {
             indicator.isContainsSpecialLetter()
+            confirmButton.changeColorByDisabled()
+        } catch NickValidationService.Errors.isOverTen {
+            indicator.isLowerThanTwoOrOverTen()
             confirmButton.changeColorByDisabled()
         } catch {
             confirmButton.changeColorByDisabled()

@@ -34,11 +34,11 @@ class VIndicatingLabel: UILabel {
         text = Texts.Indicator.NICKNAME_EDITING_START.rawValue
     }
     
-    func isLowerThanTwo() {
+    func isLowerThanTwoOrOverTen() {
         textColor = ._tint_error
         text = Texts.Indicator.NICKNAME_ERROR_COUNT.rawValue
     }
-    
+ 
     func isEmpty() {
         textColor = ._gray_md
         text = Texts.Indicator.NICKNAME_ERROR_EMPTY.rawValue
