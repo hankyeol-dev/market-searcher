@@ -7,11 +7,17 @@
 
 import Foundation
 
-class APIService {
+final class APIService {
     private init() {}
     
     static let manager = APIService()
 
+    enum SortType: String, CaseIterable {
+        case sim = "sim"
+        case date = "date"
+        case asc = "asc"
+        case dsc = "dsc"
+    }
     
     enum Errors: Error {
         case notFound

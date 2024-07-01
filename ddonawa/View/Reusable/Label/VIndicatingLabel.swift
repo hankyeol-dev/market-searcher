@@ -7,12 +7,6 @@
 
 import UIKit
 
-enum IndicatingType {
-    case normal
-    case success
-    case fail
-}
-
 class VIndicatingLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -12,11 +12,11 @@ import Toast
 
 class VCSearchingList: VCMain {
     private lazy var query = ""
-    private lazy var filterButtonSortTypes = [SortType.sim, SortType.date, SortType.asc, SortType.dsc]
+    private lazy var filterButtonSortTypes = APIService.SortType.allCases
     private lazy var searchingList:[Product] = []
     private lazy var searchingStart: Int = 1
     private lazy var searchingTotal: Int = 0
-    private lazy var sortType: SortType = .sim
+    private lazy var sortType: APIService.SortType = .sim
     
     private let searchCountLabel = VLabel(" ", tColor: ._main, tType: .impact)
     private let filterButtonStack = UIStackView()
@@ -149,7 +149,7 @@ extension VCSearchingList: UICollectionViewDelegate, UICollectionViewDataSource 
 }
 
 extension VCSearchingList {
-    private func fetchData(query: String, start: Int, sort: SortType) {
+    private func fetchData(query: String, start: Int, sort: APIService.SortType) {
         DispatchQueue.global().async {
             APIService.manager.fetch(query: query, start: start, sort: sort) { (data: ProductResult?, error: APIService.Errors?) in
                 if error != nil {

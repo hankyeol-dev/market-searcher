@@ -94,7 +94,7 @@ extension VCSettingMain: UITableViewDelegate, UITableViewDataSource {
                 actions: [
                     UIAlertAction(title: Texts.Alert.CONFIRM.rawValue, style: .default, handler: { a in
                         User.deleteUser
-                        _dismissViewStack(UINavigationController(rootViewController: VCOnboardingMain()))
+                        _dismissViewStack(UINavigationController(rootViewController: OnboardingMainViewController()))
                     }),
                     UIAlertAction(title: Texts.Alert.CANCEL.rawValue, style: .cancel)
                 ])

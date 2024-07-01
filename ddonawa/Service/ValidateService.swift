@@ -1,13 +1,13 @@
 //
-//  forValidation.swift
+//  ValidateService.swift
 //  ddonawa
 //
-//  Created by 강한결 on 6/21/24.
+//  Created by 강한결 on 7/1/24.
 //
 
 import Foundation
 
-class NickValidationService {
+final class ValidateService {
     private init() {}
     
     enum Errors: Error {

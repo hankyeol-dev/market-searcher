@@ -146,7 +146,7 @@ extension VCSettingProfile {
             image: ProfileImage(
                 id: selectedImageId,
                 sourceName: _getProfileImageById(selectedImageId).sourceName))
-        _dismissViewStack(TCMain())
+        _dismissViewStack(MainTabBarController())
     }
     
     @objc
@@ -161,7 +161,7 @@ extension VCSettingProfile {
         
         User.getOrSaveUser = user
         
-        let tc = TCMain()
+        let tc = MainTabBarController()
         tc.selectedIndex = 1
         
         _dismissViewStack(tc)
@@ -201,24 +201,24 @@ extension VCSettingProfile: UITextFieldDelegate {
         guard let text = textField.text else {return}
         
         do {
-            try NickValidationService.validateNickname(text)
+            try ValidateService.validateNickname(text)
             
             indicator.isSuccess()
             confirmButton.changeColorByEnabled()
             
-        } catch NickValidationService.Errors.isEmpty {
+        } catch ValidateService.Errors.isEmpty {
             indicator.isEmpty()
             confirmButton.changeColorByDisabled()
-        } catch NickValidationService.Errors.isLowerThanTwo {
+        } catch ValidateService.Errors.isLowerThanTwo {
             indicator.isLowerThanTwoOrOverTen()
             confirmButton.changeColorByDisabled()
-        } catch NickValidationService.Errors.isContainNumber {
+        } catch ValidateService.Errors.isContainNumber {
             indicator.isContainsNumber()
             confirmButton.changeColorByDisabled()
-        } catch NickValidationService.Errors.isContainSpecialLetter {
+        } catch ValidateService.Errors.isContainSpecialLetter {
             indicator.isContainsSpecialLetter()
             confirmButton.changeColorByDisabled()
-        } catch NickValidationService.Errors.isOverTen {
+        } catch ValidateService.Errors.isOverTen {
             indicator.isLowerThanTwoOrOverTen()
             confirmButton.changeColorByDisabled()
         } catch {

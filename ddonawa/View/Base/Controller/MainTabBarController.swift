@@ -1,13 +1,13 @@
 //
-//  TCMain.swift
+//  TCMain.swift >> MainTabBarController.swift
 //  ddonawa
 //
-//  Created by 강한결 on 6/15/24.
+//  Created by 강한결 on 6/15/24. >> 7/01/24.
 //
 
 import UIKit
 
-class TCMain: UITabBarController {
+class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         configureUI()
         

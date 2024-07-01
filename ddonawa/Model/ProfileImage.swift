@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProfileImage: Encodable, Decodable {
+struct ProfileImage: Codable {
     static private var key = "selectedId"
     let id: Int
     let sourceName: String

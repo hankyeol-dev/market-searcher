@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let entry = User.isSavedUser ? TCMain() : UINavigationController(rootViewController: VCOnboardingMain())
+        let entry = User.isSavedUser ? MainTabBarController() : UINavigationController(rootViewController: OnboardingMainViewController())
         
         window?.rootViewController = entry
         window?.makeKeyAndVisible()
