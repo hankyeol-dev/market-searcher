@@ -125,7 +125,7 @@
         - [x] 장바구니 찜 갯수가 0개일 경우 페이지 전환 안됨
         - [x] 장바구니 찜 목록에서 삭제, 전체 목록 삭제 구현
     - [ ] BaseView 접목해서 View - Controller 관심사 분리시키고, 코드 재사용성 높이기
-    - [ ] URLSession + DispatchGroup 형태로 APIService 개선하기
+    - [x] URLSession + DispatchGroup 형태로 APIService 개선하기
     
 </details>
 

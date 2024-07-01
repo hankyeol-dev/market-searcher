@@ -150,42 +150,46 @@ extension VCSearchingList: UICollectionViewDelegate, UICollectionViewDataSource 
 
 extension VCSearchingList {
     private func fetchData(query: String, start: Int, sort: SortType) {
-//        FetchManager._fetch(
-//            url: _mappingURL(query: query, start: searchingStart, sort: sort),
-//            headers: API.getHeaders) { v in
-//                self.searchingTotal = v.total
-//                if self.searchingTotal > self.searchingStart {
-//                    for i in v.items {
-//                        self.searchingList.append(i)
-//                    }
-//                    self.searchingStart =  self.searchingStart + v.start
-//                    self.searchCountLabel.changeLabelText("\(_formatString(String(v.total)))" + Texts.Menu.SEARCHING_TOTAL_COUNTS.rawValue)
-//                    self.searchingCollection.reloadSections(IndexSet(integer: 0))
-//                }
-//            } failHandler: { e in
-//                self.view.makeToast(Texts.Error.NETWORKING_ERROR.rawValue, duration: 2.0, position: .bottom)
-//            }
-        APIService.manager.fetch(query: query, start: start, sort: sort) { (data: ProductResult?, error: APIService.Errors?) in
-            print(data)
-            print(error)
+        DispatchQueue.global().async {
+            APIService.manager.fetch(query: query, start: start, sort: sort) { (data: ProductResult?, error: APIService.Errors?) in
+                if error != nil {
+                    self.view.makeToast("뭔가 에러가 있어요 :(", position: .bottom)
+                }
+                
+                guard let data else { return }
+                
+                self.searchingTotal = data.total
+                if self.searchingTotal > self.searchingStart {
+                    for item in data.items {
+                        self.searchingList.append(item)
+                    }
+                    self.searchingStart += data.start
+                    DispatchQueue.main.async {
+                        self.searchCountLabel.changeLabelText("\(_formatString(String(self.searchingTotal)))" + Texts.Menu.SEARCHING_TOTAL_COUNTS.rawValue)
+                        self.searchingCollection.reloadSections(IndexSet(integer: 0))
+                    }
+                }
+            }
         }
     }
     
     @objc
     func sortButtonTouch(_ sender: UIButton) {
-        filterButtons.enumerated().forEach { (idx, v) in
-            if idx == sender.tag {
-                v.isSelected()
-            } else {
-                v.disSelected()
+        if self.sortType != filterButtonSortTypes[sender.tag] {
+            filterButtons.enumerated().forEach { (idx, v) in
+                if idx == sender.tag {
+                    v.isSelected()
+                } else {
+                    v.disSelected()
+                }
             }
+            
+            self.searchingStart = 1
+            self.searchingTotal = 0
+            self.searchingList = []
+            self.sortType = filterButtonSortTypes[sender.tag]
+            
+            fetchData(query: query, start: searchingStart, sort: sortType)
         }
-        
-        self.searchingStart = 1
-        self.searchingTotal = 0
-        self.searchingList = []
-        self.sortType = filterButtonSortTypes[sender.tag]
-        
-        fetchData(query: query, start: searchingStart, sort: sortType)
     }
 }

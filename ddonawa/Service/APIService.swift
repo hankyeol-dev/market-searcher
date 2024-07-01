@@ -37,9 +37,8 @@ class APIService {
     private func genRequest(_ url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         
-        request.httpMethod = METHOD
-        request.setValue(HEADERS_KEY_ID, forHTTPHeaderField: HEADERS_VALUE_ID)
-        request.setValue(HEADERS_KEY_SECRET, forHTTPHeaderField: HEADERS_VALUE_SECRET)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = [HEADERS_KEY_ID:HEADERS_VALUE_ID, HEADERS_KEY_SECRET: HEADERS_VALUE_SECRET]
 
         return request
     }
