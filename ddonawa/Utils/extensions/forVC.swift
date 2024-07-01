@@ -39,14 +39,14 @@ extension UIViewController: ID {
         return leftItem
     }
     
-    func _showAlert(title: String, message: String, actions: [UIAlertAction], animated: Bool?) {
+    func _showAlert(title: String, message: String, actions: [UIAlertAction]) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         actions.forEach {
             alert.addAction($0)
         }
         
-        present(alert, animated: animated ?? true)
+        present(alert, animated: true)
     }
 }
 

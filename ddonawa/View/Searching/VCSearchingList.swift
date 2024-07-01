@@ -150,21 +150,25 @@ extension VCSearchingList: UICollectionViewDelegate, UICollectionViewDataSource 
 
 extension VCSearchingList {
     private func fetchData(query: String, start: Int, sort: SortType) {
-        FetchManager._fetch(
-            url: _mappingURL(query: query, start: searchingStart, sort: sort),
-            headers: API.getHeaders) { v in
-                self.searchingTotal = v.total
-                if self.searchingTotal > self.searchingStart {
-                    for i in v.items {
-                        self.searchingList.append(i)
-                    }
-                    self.searchingStart =  self.searchingStart + v.start
-                    self.searchCountLabel.changeLabelText("\(_formatString(String(v.total)))" + Texts.Menu.SEARCHING_TOTAL_COUNTS.rawValue)
-                    self.searchingCollection.reloadSections(IndexSet(integer: 0))
-                }
-            } failHandler: { e in
-                self.view.makeToast(Texts.Error.NETWORKING_ERROR.rawValue, duration: 2.0, position: .bottom)
-            }
+//        FetchManager._fetch(
+//            url: _mappingURL(query: query, start: searchingStart, sort: sort),
+//            headers: API.getHeaders) { v in
+//                self.searchingTotal = v.total
+//                if self.searchingTotal > self.searchingStart {
+//                    for i in v.items {
+//                        self.searchingList.append(i)
+//                    }
+//                    self.searchingStart =  self.searchingStart + v.start
+//                    self.searchCountLabel.changeLabelText("\(_formatString(String(v.total)))" + Texts.Menu.SEARCHING_TOTAL_COUNTS.rawValue)
+//                    self.searchingCollection.reloadSections(IndexSet(integer: 0))
+//                }
+//            } failHandler: { e in
+//                self.view.makeToast(Texts.Error.NETWORKING_ERROR.rawValue, duration: 2.0, position: .bottom)
+//            }
+        APIService.manager.fetch(query: query, start: start, sort: sort) { (data: ProductResult?, error: APIService.Errors?) in
+            print(data)
+            print(error)
+        }
     }
     
     @objc

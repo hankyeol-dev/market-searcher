@@ -124,7 +124,8 @@
     - [x] 6에서 장바구니 찜 갯수 보여주는 셀 터치시 해당하는 아이템으로 구성된 목록 UI 보여주기
         - [x] 장바구니 찜 갯수가 0개일 경우 페이지 전환 안됨
         - [x] 장바구니 찜 목록에서 삭제, 전체 목록 삭제 구현
-    - [ ] for API Networking (async, await, task, do-try 반영해보기)
+    - [ ] BaseView 접목해서 View - Controller 관심사 분리시키고, 코드 재사용성 높이기
+    - [ ] URLSession + DispatchGroup 형태로 APIService 개선하기
     
 </details>
 

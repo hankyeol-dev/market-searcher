@@ -97,6 +97,6 @@ extension VCLikedProductList {
                 self.navigationController?.popViewController(animated: true)
             }) ,
             UIAlertAction(title: Texts.Alert.CANCEL.rawValue, style: .cancel)
-        ], animated: true)
+        ])
     }
 }

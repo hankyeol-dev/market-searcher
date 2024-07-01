@@ -97,8 +97,7 @@ extension VCSettingMain: UITableViewDelegate, UITableViewDataSource {
                         _dismissViewStack(UINavigationController(rootViewController: VCOnboardingMain()))
                     }),
                     UIAlertAction(title: Texts.Alert.CANCEL.rawValue, style: .cancel)
-                ],
-                animated: true)
+                ])
             table.reloadSections(IndexSet(integer: 0), with: .none)
         }
     }
