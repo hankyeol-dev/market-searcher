@@ -36,6 +36,8 @@
 		817DAC912C3287BB00A342A0 /* OnboardingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817DAC902C3287BB00A342A0 /* OnboardingMainView.swift */; };
 		817DAC942C3289B400A342A0 /* OnboardingProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817DAC932C3289B400A342A0 /* OnboardingProfileSettingViewController.swift */; };
 		817DAC962C328AAD00A342A0 /* OnboardingProfileSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817DAC952C328AAD00A342A0 /* OnboardingProfileSetting.swift */; };
+		817DAC992C32C76400A342A0 /* ProfileImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817DAC982C32C76400A342A0 /* ProfileImageSelectViewController.swift */; };
+		817DAC9B2C32C79600A342A0 /* ProfileSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817DAC9A2C32C79600A342A0 /* ProfileSelectView.swift */; };
 		818C3D132C202E1400A057EE /* VSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C3D122C202E1400A057EE /* VSettingCell.swift */; };
 		81C7E9FC2C2930A200B5A36E /* VLikedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C7E9FB2C2930A200B5A36E /* VLikedCell.swift */; };
 		81C7E9FE2C29338500B5A36E /* VCLikedProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C7E9FD2C29338500B5A36E /* VCLikedProductList.swift */; };
@@ -96,6 +98,8 @@
 		817DAC902C3287BB00A342A0 /* OnboardingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainView.swift; sourceTree = "<group>"; };
 		817DAC932C3289B400A342A0 /* OnboardingProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileSettingViewController.swift; sourceTree = "<group>"; };
 		817DAC952C328AAD00A342A0 /* OnboardingProfileSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileSetting.swift; sourceTree = "<group>"; };
+		817DAC982C32C76400A342A0 /* ProfileImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectViewController.swift; sourceTree = "<group>"; };
+		817DAC9A2C32C79600A342A0 /* ProfileSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectView.swift; sourceTree = "<group>"; };
 		818C3D122C202E1400A057EE /* VSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSettingCell.swift; sourceTree = "<group>"; };
 		81C7E9FB2C2930A200B5A36E /* VLikedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLikedCell.swift; sourceTree = "<group>"; };
 		81C7E9FD2C29338500B5A36E /* VCLikedProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLikedProductList.swift; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 		817DAC8D2C32866B00A342A0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				817DAC972C32C75600A342A0 /* Common */,
 				817DAC922C32899200A342A0 /* Onboarding */,
 			);
 			path = Controller;
@@ -347,6 +352,14 @@
 				817DAC932C3289B400A342A0 /* OnboardingProfileSettingViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		817DAC972C32C75600A342A0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				817DAC982C32C76400A342A0 /* ProfileImageSelectViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		81DC84B72C1C279100730BAC /* Searching */ = {
@@ -363,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				810C20912C202B400001B72F /* VCMain.swift */,
+				817DAC9A2C32C79600A342A0 /* ProfileSelectView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -473,6 +487,7 @@
 				81DC84D02C1D623200730BAC /* MainTabBarController.swift in Sources */,
 				815E64FA2C1AD433000185D7 /* VCSettingProfile.swift in Sources */,
 				81DC84BB2C1C29C500730BAC /* VCSelectProfileImage.swift in Sources */,
+				817DAC992C32C76400A342A0 /* ProfileImageSelectViewController.swift in Sources */,
 				81DC84AE2C1BF0DF00730BAC /* VProfile.swift in Sources */,
 				817DAC852C3284CB00A342A0 /* ValidateService.swift in Sources */,
 				81DC84B92C1C27BE00730BAC /* VCSearchingMain.swift in Sources */,
@@ -510,6 +525,7 @@
 				817DAC8F2C32878700A342A0 /* OnboardingMainViewController.swift in Sources */,
 				81C7E9FE2C29338500B5A36E /* VCLikedProductList.swift in Sources */,
 				815E652B2C1B36E2000185D7 /* Icons.swift in Sources */,
+				817DAC9B2C32C79600A342A0 /* ProfileSelectView.swift in Sources */,
 				81DC84B22C1BFEC300730BAC /* VUpdateProfileImgButton.swift in Sources */,
 				81DC84C72C1D1C0D00730BAC /* VRecentSearchCell.swift in Sources */,
 				810C20922C202B400001B72F /* VCMain.swift in Sources */,
