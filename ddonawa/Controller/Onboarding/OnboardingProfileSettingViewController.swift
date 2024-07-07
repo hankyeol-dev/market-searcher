@@ -19,6 +19,7 @@ final class OnboardingProfileSettingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        currentImageId = mainView.profile.getPresentImage()
         configureAddAction()
         configureTextField()
     }
@@ -43,8 +44,12 @@ extension OnboardingProfileSettingViewController {
     
     @objc
     func goSelectVC() {
-        goSomeVC(vc: VCSelectProfileImage()) { vc in
-            vc.setProfileImage(_getProfileImageById(self.currentImageId))
+        goSomeVC(vc: ProfileImageSelectViewController()) { vc in
+            vc.setCurrentProfileId(self.currentImageId)
+            vc.sender = {
+                self.currentImageId = vc.getCurrentProfileId()
+                self.mainView.profile.setImage(_getProfileImageById(self.currentImageId))
+            }
         }
     }
     

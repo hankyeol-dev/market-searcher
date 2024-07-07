@@ -18,8 +18,8 @@ class VProfile: UIView {
     private lazy var selectedImageId = 0
     private let profileImage = VProfileImage(selectedImage: UIImage.profile10)
     private let profileInfoStack = UIStackView()
-    private let nameLabel = VLabel("asdf", tType: .impact)
-    private let dateLabel = VLabel("asfdas", tColor: ._gray_md, tType: .normal)
+    private let nameLabel = VLabel("", tType: .impact)
+    private let dateLabel = VLabel("", tColor: ._gray_md, tType: .normal)
     var editButton = UIButton()
     
     override init(frame: CGRect) {

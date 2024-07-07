@@ -66,6 +66,8 @@
 		81DC84D72C1D977600730BAC /* VCSearchingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC84D62C1D977600730BAC /* VCSearchingDetail.swift */; };
 		81ED23212C2067B800CE51F1 /* VRandomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED23202C2067B800CE51F1 /* VRandomButton.swift */; };
 		81F6D97F2C3139390008041B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6D97E2C3139390008041B /* APIService.swift */; };
+		81FB26912C3A3CD600106B0B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81FB26902C3A3CD600106B0B /* RealmSwift */; };
+		81FB26932C3A3CEB00106B0B /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB26922C3A3CEB00106B0B /* RealmUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,7 @@
 		81DC84D62C1D977600730BAC /* VCSearchingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSearchingDetail.swift; sourceTree = "<group>"; };
 		81ED23202C2067B800CE51F1 /* VRandomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRandomButton.swift; sourceTree = "<group>"; };
 		81F6D97E2C3139390008041B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		81FB26922C3A3CEB00106B0B /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,7 @@
 				81DBEA202C251B310087016A /* Toast in Frameworks */,
 				815E65292C1B2D39000185D7 /* Kingfisher in Frameworks */,
 				815E65182C1AEA31000185D7 /* Alamofire in Frameworks */,
+				81FB26912C3A3CD600106B0B /* RealmSwift in Frameworks */,
 				815E65262C1B2D2D000185D7 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +265,7 @@
 				815E65142C1AE831000185D7 /* Product.swift */,
 				81DC84C02C1C471400730BAC /* ProfileImage.swift */,
 				815E65192C1AEABC000185D7 /* User.swift */,
+				81FB26922C3A3CEB00106B0B /* RealmUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				815E65252C1B2D2D000185D7 /* SnapKit */,
 				815E65282C1B2D39000185D7 /* Kingfisher */,
 				81DBEA1F2C251B310087016A /* Toast */,
+				81FB26902C3A3CD600106B0B /* RealmSwift */,
 			);
 			productName = ddonawa;
 			productReference = 815E64F22C1AD433000185D7 /* ddonawa.app */;
@@ -455,6 +461,7 @@
 				815E65242C1B2D2D000185D7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				815E65272C1B2D39000185D7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				81DBEA1E2C251B310087016A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				81FB268F2C3A3CD600106B0B /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 815E64F32C1AD433000185D7 /* Products */;
 			projectDirPath = "";
@@ -512,6 +519,7 @@
 				815E651A2C1AEABC000185D7 /* User.swift in Sources */,
 				81DC84C12C1C471400730BAC /* ProfileImage.swift in Sources */,
 				817DAC962C328AAD00A342A0 /* OnboardingProfileSetting.swift in Sources */,
+				81FB26932C3A3CEB00106B0B /* RealmUser.swift in Sources */,
 				815E652D2C1B36F5000185D7 /* Figure.swift in Sources */,
 				81D18EC22C1FAFA500480184 /* Table.swift in Sources */,
 				81ED23212C2067B800CE51F1 /* VRandomButton.swift in Sources */,
@@ -793,6 +801,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		81FB268F2C3A3CD600106B0B /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.52.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -815,6 +831,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 81DBEA1E2C251B310087016A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		81FB26902C3A3CD600106B0B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81FB268F2C3A3CD600106B0B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
