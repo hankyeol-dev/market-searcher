@@ -10,6 +10,7 @@ import SnapKit
 import Kingfisher
 
 class VSeachingItem: UICollectionViewCell {
+    private let repository = Repository<RealmProduct>()
     private lazy var product: Product = Product(productId: "", title: "", mallName: "", productType: "", image: "", link: "", lprice: "")
 
     private let imgBack = UIView()
@@ -103,26 +104,19 @@ extension VSeachingItem {
     
     @objc
     func togglePickButton() {
-        var user = User.getOrSaveUser
         
-        if !user.isInLiked(product.productId) {
+        if let productRecord = repository.getRecordById(product.productId) {
+            // 좋아요 했던 상태
+            pickButtonBack.backgroundColor = ._gray_lg.withAlphaComponent(0.8)
+            pickButtonImg.image = UIImage.likeUnselected
+            repository.deleteRecord(productRecord)
+        } else {
             // 좋아요 하지 않은 상태
             // 일단 UI 변경해주고
             pickButtonBack.backgroundColor = .systemBackground
             pickButtonImg.image = UIImage.likeSelected
-            
-            // 좋아요 리스트에 넣어주고
-            user.addLiked(
-                ProductUserLiked(productId: product.productId, image: product.image, title: product.title, lprice: product.lprice, link: product.link)
-            )
-        } else {
-            // 좋아요 했던 상태
-            pickButtonBack.backgroundColor = ._gray_lg.withAlphaComponent(0.8)
-            pickButtonImg.image = UIImage.likeUnselected
-            
-            user.deleteLiked(product.productId)
+            let LikedProduct = RealmProduct(id: product.productId, name: product.title, thumb: product.image, price: product.lprice, link: product.link)
+            repository.addRecord(LikedProduct)
         }
-        
-        User.getOrSaveUser = user
     }
 }

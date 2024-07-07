@@ -8,17 +8,13 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+
         guard let scene = (scene as? UIWindowScene) else { return }
-        
         window = UIWindow(windowScene: scene)
-        
-        let entry = User.isSavedUser ? MainTabBarController() : UINavigationController(rootViewController: OnboardingMainViewController())
-        
-        window?.rootViewController = entry
+        window?.rootViewController = UserService.manager.getOrSetUserNick != "" ? MainTabBarController() : UINavigationController(rootViewController: OnboardingMainViewController())
         window?.makeKeyAndVisible()
     }
     

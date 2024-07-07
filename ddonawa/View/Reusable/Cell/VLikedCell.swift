@@ -10,8 +10,6 @@ import SnapKit
 
 class VLikedCell: UITableViewCell {
     
-    private lazy var product: ProductUserLiked = ProductUserLiked(productId: "", image: "", title: "", lprice: "", link: "")
-    
     private let image = UIImageView()
     private let vStack = UIStackView()
     private let title = VLabel("", tType: .normal)
@@ -69,11 +67,10 @@ extension VLikedCell {
         button.tintColor = ._gray_lg
     }
     
-    func setCellWithData(_ data: ProductUserLiked) {
-        product = data
+    func setCellWithData(_ data: RealmProduct) {
         
-        image.kf.setImage(with: URL(string: data.image)!)
-        title.changeLabelText(_replaceHTMLTag(data.title))
-        price.changeLabelText("\(_formatString(data.lprice))원")
+        image.kf.setImage(with: URL(string: data.thumb)!)
+        title.changeLabelText(_replaceHTMLTag(data.name))
+        price.changeLabelText("\(_formatString(data.price))원")
     }
 }

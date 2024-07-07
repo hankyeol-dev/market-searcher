@@ -8,11 +8,11 @@
 import UIKit
 
 class UserService {
-    private enum keys: String {
+    enum keys: String {
         case nick
         case img
     }
-    static let service = UserService()
+    static let manager = UserService()
     private let defaults = UserDefaults.standard
     
     private init() {}
@@ -30,9 +30,10 @@ class UserService {
         get {
             UIImage(named: getDefaultsValue(keys.img.rawValue))!
         }
-        set {
-            defaults.setValue(newValue, forKey: keys.img.rawValue)
-        }
+    }
+    
+    func setImage(_ newValue: String) {
+        defaults.setValue(newValue, forKey: keys.img.rawValue)
     }
     
     private func getDefaultsValue(_ key: keys.RawValue) -> String {

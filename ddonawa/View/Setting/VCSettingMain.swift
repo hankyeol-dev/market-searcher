@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 class VCSettingMain: VCMain {
-    private lazy var likedCount = User.getOrSaveUser.getLiked.count
+    private let repository = Repository<RealmProduct>()
+    private lazy var likedCount = 0
     private let tableList = SettingTableList
     
     private let profile = VProfile(viewType: .withProfileInfo, isNeedToRandom: false, imageArray: nil)
@@ -25,7 +26,7 @@ class VCSettingMain: VCMain {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         configureNav(navTitle: Texts.Menu.SETTING.rawValue, left: nil, right: nil)
-        likedCount = User.getOrSaveUser.getLiked.count
+        likedCount = repository.getRecords().count
         table.reloadSections(IndexSet(integer: 0), with: .none)
     }
     
@@ -83,7 +84,7 @@ extension VCSettingMain: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 && User.getOrSaveUser.getLiked.count != 0 {
+        if indexPath.row == 0 && likedCount != 0 {
             navigationController?.pushViewController(VCLikedProductList(), animated: true)
         }
         

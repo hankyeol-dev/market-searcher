@@ -7,9 +7,12 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
 class VCSearchingMain: VCMain {
-    private lazy var recentSearchList: [String] = []
+    private var userId: ObjectId!
+    private let searchRepository = Repository<RealmUserSearch>()
+    private var recentSearchList: Results<RealmUserSearch>!
     
     let searchBar = UISearchBar()
     let recentSearchTable = UITableView()
@@ -22,20 +25,19 @@ class VCSearchingMain: VCMain {
         super.viewDidLoad()
         
         configureSearchBar()
+        self.recentSearchList = searchRepository.getRecords()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if User.isSavedUser {
-            configureNavigation()
-                        
-            let user = User.getOrSaveUser
+        let username = UserService.manager.getOrSetUserNick
+        if username != "" {
+            configureNav(navTitle: "\(username)님의 또나와", left: nil, right: nil)
             
-            if user.getRecentSearch.count == 0 {
+            if recentSearchList?.count == 0 {
                 recentSearchMenu.isHidden = true
                 emptyRecentSearching()
             } else {
                 recentSearchMenu.isHidden = false
-                recentSearchList = user.getRecentSearch
                 configureTable()
                 recentSearchTable.reloadSections(IndexSet(integer: 0), with: .none)
             }
@@ -50,11 +52,6 @@ class VCSearchingMain: VCMain {
 }
 
 extension VCSearchingMain {
-    private func configureNavigation() {
-        let nickname = User.getOrSaveUser.getOrChangeNick
-        configureNav(navTitle: "\(nickname)님의 또나와", left: nil, right: nil)
-    }
-
     private func emptyRecentSearching() {
         view.addSubview(emptyImg)
         
@@ -91,13 +88,13 @@ extension VCSearchingMain: UISearchBarDelegate {
         guard let text = searchBar.text else { return }
         
         if !text.isEmpty {
-            // user update
-            var user = User.getOrSaveUser
-            
-            if !recentSearchList.contains(text) {
-                user.addRecentSearch(text)
+            let keyword = searchRepository.getRecords().where { record in
+                record.keyword == text
             }
-            User.getOrSaveUser = user
+            
+            if keyword.count == 0 {
+                searchRepository.addRecord(RealmUserSearch(keyword: text))
+            }
             
             // 이동처리
             let vc = VCSearchingList()
@@ -153,7 +150,7 @@ extension VCSearchingMain: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = recentSearchTable.dequeueReusableCell(withIdentifier: VRecentSearchCell.id, for: indexPath) as! VRecentSearchCell
         
-        cell.setCellWithData(recentSearchList[recentSearchList.count - (indexPath.row + 1)], cellIndex: indexPath.row)
+        cell.setCellWithData(recentSearchList[recentSearchList.count - (indexPath.row + 1)].keyword, cellIndex: indexPath.row)
         cell.btn.tag = indexPath.row
         cell.btn.addTarget(self, action: #selector(deleteSearch), for: .touchUpInside)
         
@@ -161,30 +158,30 @@ extension VCSearchingMain: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        searchBar.text = recentSearchList[recentSearchList.count - (indexPath.row + 1)]
+        searchBar.text = recentSearchList[recentSearchList.count - (indexPath.row + 1)].keyword
         recentSearchTable.reloadSections(IndexSet(integer: 0), with: .none)
         search()
     }
     
     @objc
     private func deleteSearch(_ sender: UIButton) {
-        var user = User.getOrSaveUser
-        user.deleteRecentSearch(sender.tag)
-        recentSearchList = user.getRecentSearch
-        User.getOrSaveUser = user
+        searchRepository.deleteRecord(recentSearchList[sender.tag])
+        if recentSearchList.count == 0 {
+            recentSearchMenu.isHidden = true
+            emptyRecentSearching()
+        } else {
+            recentSearchMenu.isHidden = false
+            configureTable()
+        }
         recentSearchTable.reloadSections(IndexSet(integer: 0), with: .none)
-        self.viewWillAppear(true)
     }
     
     @objc
     private func deleteAllSearch(_ sender: UIButton) {
-        recentSearchList = []
-        var user = User.getOrSaveUser
-        user.deleteAllRecentSearch()
-        User.getOrSaveUser = user
+        searchRepository.deleteAllRecords()
+        recentSearchMenu.isHidden = true
+        emptyRecentSearching()
         recentSearchTable.reloadSections(IndexSet(integer: 0), with: .none)
-        
-        viewWillAppear(true)
     }
 
 }

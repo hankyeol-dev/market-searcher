@@ -8,21 +8,6 @@
 import Foundation
 import RealmSwift
 
-class RealmUser: Object {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var nickname: String
-    @Persisted var profileImage: String
-    @Persisted var createdAt: String = _genFormattedDate()
-    @Persisted var searchLists: List<RealmUserSearch?>
-    @Persisted var likedProducts: List<RealmProduct?>
-    
-    convenience init(nickname: String, profileImage: String) {
-        self.init()
-        
-        self.nickname = nickname
-        self.profileImage = profileImage
-    }
-}
 
 class RealmUserSearch: Object {
     @Persisted(primaryKey: true) var id: ObjectId
@@ -36,15 +21,16 @@ class RealmUserSearch: Object {
 }
 
 class RealmProduct: Object {
-    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted(primaryKey: true) var id: String
     @Persisted var name: String
     @Persisted var thumb: String
     @Persisted var price: String
     @Persisted var link: String
     
-    convenience init(name: String, thumb: String, price: String, link: String) {
+    convenience init(id: String, name: String, thumb: String, price: String, link: String) {
         self.init()
         
+        self.id = id
         self.name = name
         self.thumb = thumb
         self.price = price

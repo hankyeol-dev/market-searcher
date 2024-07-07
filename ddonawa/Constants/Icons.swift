@@ -15,4 +15,5 @@ enum Icons {
     static let _clock = UIImage(systemName: "clock")
     static let _delete = UIImage(systemName: "xmark")
     static let _camera = UIImage(systemName: "camera.fill")
+    static let _liked = UIImage(systemName: "heart.fill")
 }

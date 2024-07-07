@@ -30,6 +30,7 @@ enum Texts: String {
         
         case TABBAR_0 = "검색"
         case TABBAR_1 = "설정"
+        case TABBAR_2 = "장바구니 목록"
         
         case NAVIGATION_SAVE = "저장"
         case NAVIGATION_DELETE_ALL = "목록 삭제"

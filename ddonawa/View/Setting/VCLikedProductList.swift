@@ -7,13 +7,16 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
 class VCLikedProductList: VCMain {
+    private let repository = Repository<RealmProduct>()
+    private var list:Results<RealmProduct>!
     private let table = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        list = repository.getRecords()
         configureView()
     }
     
@@ -23,7 +26,7 @@ class VCLikedProductList: VCMain {
         let rightButton = UIBarButtonItem(title: Texts.Buttons.NAVIGATION_DELETE_ALL.rawValue, style: .plain, target: self, action: #selector(deleteAllProductAtLiked))
         rightButton.tintColor = ._gray_lg
         
-        configureNav(navTitle: "\(User.getOrSaveUser.getLiked.count)" + Texts.Navigations.LIKED_PRODUCT_LIST.rawValue, left: _genLeftGoBackBarButton(), right: rightButton)
+        configureNav(navTitle: "\(list.count)" + Texts.Navigations.LIKED_PRODUCT_LIST.rawValue, left: _genLeftGoBackBarButton(), right: rightButton)
         
         table.reloadSections(IndexSet(integer: 0), with: .none)
     }
@@ -47,13 +50,13 @@ extension VCLikedProductList: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return User.getOrSaveUser.getLiked.count
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: VLikedCell.id, for: indexPath) as! VLikedCell
         
-        cell.setCellWithData(User.getOrSaveUser.getLiked[indexPath.row])
+        cell.setCellWithData(list[indexPath.row])
         cell.button.tag = indexPath.row
         cell.button.addTarget(self, action: #selector(deleteProductAtLiked), for: .touchUpInside)
         
@@ -62,9 +65,9 @@ extension VCLikedProductList: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = VCSearchingDetail()
-        let data = User.getOrSaveUser.getLiked[indexPath.row]
+        let data = list[indexPath.row]
         
-        vc.setVCWithData(Product(productId: data.productId, title: data.title, mallName: "", productType: "", image: data.image, link: data.link, lprice: data.lprice))
+        vc.setVCWithData(Product(productId: data.id, title: data.name, mallName: "", productType: "", image: data.thumb, link: data.link, lprice: data.price))
         
         navigationController?.pushViewController(vc, animated: true)
         

@@ -9,7 +9,7 @@ import UIKit
 
 final class ProfileImageSelectViewController: BaseViewController {
     var sender: (() -> ())?
-    private var selectedId = ProfileImage.getOrSetId != 0 ? ProfileImage.getOrSetId : 0
+    private var selectedId = 0
     
     private let mainView = ProfileSelectView()
     

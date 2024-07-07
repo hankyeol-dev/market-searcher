@@ -11,6 +11,8 @@ import Alamofire
 import Toast
 
 class VCSearchingList: VCMain {
+    private let searchRepository = Repository<RealmUserSearch>()
+    
     private lazy var query = ""
     private lazy var filterButtonSortTypes = APIService.SortType.allCases
     private lazy var searchingList:[Product] = []

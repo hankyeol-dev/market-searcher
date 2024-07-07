@@ -9,7 +9,6 @@ import UIKit
 
 final class OnboardingProfileSettingViewController: BaseViewController {
     private var currentImageId: Int = -1
-    
     private let mainView = OnboardingProfileSetting()
     
     override func loadView() {
@@ -68,11 +67,15 @@ extension OnboardingProfileSettingViewController {
     @objc
     func saveUser() {
         guard let text = mainView.field.text else { return }
+        UserService.manager.getOrSetUserNick = text
+        UserService.manager.setImage(UIImage.profile.allCases[currentImageId].rawValue)
+        
         User.getOrSaveUser = User(
             nickname: text,
             image: ProfileImage(
                 id: currentImageId,
                 sourceName: _getProfileImageById(currentImageId).sourceName))
+        
         _dismissViewStack(MainTabBarController())
     }
     

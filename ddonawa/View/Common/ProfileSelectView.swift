@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ProfileSelectView: BaseView {
+final class ProfileSelectView: BaseView {
     private let profile = VProfile(viewType: .onlyProfileImage, isNeedToRandom: false, imageArray: nil)
     private let cameraImg = VUpdateProfileImgButton()
     let cameraBtn = UIButton()
