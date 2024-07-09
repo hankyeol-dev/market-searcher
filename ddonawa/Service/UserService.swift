@@ -36,6 +36,10 @@ class UserService {
         defaults.setValue(newValue, forKey: keys.img.rawValue)
     }
     
+    func deleteUser() {
+        defaults.removeObject(forKey: keys.nick.rawValue)
+    }
+    
     private func getDefaultsValue(_ key: keys.RawValue) -> String {
         return defaults.string(forKey: key) ?? ""
     }

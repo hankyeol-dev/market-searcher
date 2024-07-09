@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		810C20922C202B400001B72F /* VCMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C20912C202B400001B72F /* VCMain.swift */; };
 		810C20982C202DCF0001B72F /* VProfileImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C20972C202DCF0001B72F /* VProfileImageItem.swift */; };
+		812391292C3D40A800F33D2F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812391282C3D40A800F33D2F /* Observable.swift */; };
+		8123912C2C3D430D00F33D2F /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123912B2C3D430D00F33D2F /* OnboardingViewModel.swift */; };
+		8123912E2C3D4AAD00F33D2F /* ProfileImageSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123912D2C3D4AAD00F33D2F /* ProfileImageSelectViewModel.swift */; };
 		815E64F62C1AD433000185D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E64F52C1AD433000185D7 /* AppDelegate.swift */; };
 		815E64F82C1AD433000185D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E64F72C1AD433000185D7 /* SceneDelegate.swift */; };
 		815E64FA2C1AD433000185D7 /* VCSettingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815E64F92C1AD433000185D7 /* VCSettingProfile.swift */; };
@@ -74,6 +77,9 @@
 /* Begin PBXFileReference section */
 		810C20912C202B400001B72F /* VCMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMain.swift; sourceTree = "<group>"; };
 		810C20972C202DCF0001B72F /* VProfileImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VProfileImageItem.swift; sourceTree = "<group>"; };
+		812391282C3D40A800F33D2F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		8123912B2C3D430D00F33D2F /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		8123912D2C3D4AAD00F33D2F /* ProfileImageSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectViewModel.swift; sourceTree = "<group>"; };
 		815E64F22C1AD433000185D7 /* ddonawa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddonawa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		815E64F52C1AD433000185D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		815E64F72C1AD433000185D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +196,15 @@
 			path = Label;
 			sourceTree = "<group>";
 		};
+		8123912A2C3D42FB00F33D2F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8123912B2C3D430D00F33D2F /* OnboardingViewModel.swift */,
+				8123912D2C3D4AAD00F33D2F /* ProfileImageSelectViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		815E64E92C1AD433000185D7 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +230,7 @@
 				815E65112C1AE810000185D7 /* Utils */,
 				81F6D97D2C3139300008041B /* Service */,
 				815E65132C1AE81B000185D7 /* Model */,
+				8123912A2C3D42FB00F33D2F /* ViewModel */,
 				815E65122C1AE815000185D7 /* View */,
 				817DAC8D2C32866B00A342A0 /* Controller */,
 				815E64F52C1AD433000185D7 /* AppDelegate.swift */,
@@ -244,6 +260,7 @@
 			children = (
 				815E65332C1B3993000185D7 /* extensions */,
 				815E651B2C1AF3B1000185D7 /* Helpers */,
+				812391282C3D40A800F33D2F /* Observable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -504,6 +521,7 @@
 				81DC84C92C1D445500730BAC /* VCSearchingList.swift in Sources */,
 				81DC84CB2C1D534800730BAC /* VFilterButton.swift in Sources */,
 				81DC84D72C1D977600730BAC /* VCSearchingDetail.swift in Sources */,
+				812391292C3D40A800F33D2F /* Observable.swift in Sources */,
 				81DC84C52C1D138C00730BAC /* VLabel.swift in Sources */,
 				81DC84B02C1BF1F500730BAC /* VProfileImage.swift in Sources */,
 				817DAC8C2C32860C00A342A0 /* BaseViewController.swift in Sources */,
@@ -511,6 +529,7 @@
 				817DAC942C3289B400A342A0 /* OnboardingProfileSettingViewController.swift in Sources */,
 				815E65232C1B2CA3000185D7 /* UI.swift in Sources */,
 				81DC84B42C1C078600730BAC /* forRandomValue.swift in Sources */,
+				8123912C2C3D430D00F33D2F /* OnboardingViewModel.swift in Sources */,
 				815E651D2C1AF3CB000185D7 /* forArray.swift in Sources */,
 				817DAC912C3287BB00A342A0 /* OnboardingMainView.swift in Sources */,
 				81DC84B62C1C1BD000730BAC /* VIndicatingLabel.swift in Sources */,
@@ -519,6 +538,7 @@
 				81F6D97F2C3139390008041B /* APIService.swift in Sources */,
 				81C7E9FC2C2930A200B5A36E /* VLikedCell.swift in Sources */,
 				81DBEA1B2C25046E0087016A /* UserService.swift in Sources */,
+				8123912E2C3D4AAD00F33D2F /* ProfileImageSelectViewModel.swift in Sources */,
 				815E651A2C1AEABC000185D7 /* User.swift in Sources */,
 				81DC84C12C1C471400730BAC /* ProfileImage.swift in Sources */,
 				817DAC962C328AAD00A342A0 /* OnboardingProfileSetting.swift in Sources */,

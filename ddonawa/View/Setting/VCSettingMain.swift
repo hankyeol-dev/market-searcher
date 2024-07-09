@@ -10,6 +10,8 @@ import SnapKit
 
 class VCSettingMain: VCMain {
     private let repository = Repository<RealmProduct>()
+    private let searchRepository = Repository<RealmUserSearch>()
+    
     private lazy var likedCount = 0
     private let tableList = SettingTableList
     
@@ -95,6 +97,9 @@ extension VCSettingMain: UITableViewDelegate, UITableViewDataSource {
                 actions: [
                     UIAlertAction(title: Texts.Alert.CONFIRM.rawValue, style: .default, handler: { a in
                         User.deleteUser
+                        UserService.manager.deleteUser()
+                        self.repository.deleteAllRecords()
+                        self.searchRepository.deleteAllRecords()
                         _dismissViewStack(UINavigationController(rootViewController: OnboardingMainViewController()))
                     }),
                     UIAlertAction(title: Texts.Alert.CANCEL.rawValue, style: .cancel)

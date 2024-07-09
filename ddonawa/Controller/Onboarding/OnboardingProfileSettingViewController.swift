@@ -8,6 +8,7 @@
 import UIKit
 
 final class OnboardingProfileSettingViewController: BaseViewController {
+    private let vm = OnboardingViewModel()
     private var currentImageId: Int = -1
     private let mainView = OnboardingProfileSetting()
     
@@ -21,6 +22,7 @@ final class OnboardingProfileSettingViewController: BaseViewController {
         currentImageId = mainView.profile.getPresentImage()
         configureAddAction()
         configureTextField()
+        bindingData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +96,32 @@ extension OnboardingProfileSettingViewController {
             mainView.addAction(object: mainView.confirmBtn, target: self, action: #selector(saveUser), event: .touchUpInside)
         }
     }
+    
+    private func bindingData() {
+        let indicator = mainView.indicatingLabel
+        let confirmBtn = mainView.confirmBtn
+        
+        vm.nicknameOutput.bind(NicknameValidateOuput(success: false, error: nil)) { ouput in
+            if ouput.success {
+                indicator.isSuccess()
+                confirmBtn.changeColorByEnabled()
+            } else {
+                confirmBtn.changeColorByDisabled()
+                switch ouput.error {
+                case .isEmpty:
+                    indicator.isEmpty()
+                case .isLowerThanTwo, .isOverTen:
+                    indicator.isLowerThanTwoOrOverTen()
+                case .isContainNumber:
+                    indicator.isContainsNumber()
+                case .isContainSpecialLetter:
+                    indicator.isContainsSpecialLetter()
+                default:
+                    return
+                }
+            }
+        }
+    }
 }
 
 extension OnboardingProfileSettingViewController: UITextFieldDelegate {
@@ -108,33 +136,34 @@ extension OnboardingProfileSettingViewController: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        let indicator = mainView.indicatingLabel
-        let confirmBtn = mainView.confirmBtn
-        
-        do {
-            try ValidateService.validateNickname(text)
-            
-            indicator.isSuccess()
-            confirmBtn.changeColorByEnabled()
-            
-        } catch ValidateService.Errors.isEmpty {
-            indicator.isEmpty()
-            confirmBtn.changeColorByDisabled()
-        } catch ValidateService.Errors.isLowerThanTwo {
-            indicator.isLowerThanTwoOrOverTen()
-            confirmBtn.changeColorByDisabled()
-        } catch ValidateService.Errors.isContainNumber {
-            indicator.isContainsNumber()
-            confirmBtn.changeColorByDisabled()
-        } catch ValidateService.Errors.isContainSpecialLetter {
-            indicator.isContainsSpecialLetter()
-            confirmBtn.changeColorByDisabled()
-        } catch ValidateService.Errors.isOverTen {
-            indicator.isLowerThanTwoOrOverTen()
-            confirmBtn.changeColorByDisabled()
-        } catch {
-            confirmBtn.changeColorByDisabled()
-        }
+//        guard let text = textField.text else { return }
+//        let indicator = mainView.indicatingLabel
+//        let confirmBtn = mainView.confirmBtn
+//        
+//        do {
+//            try ValidateService.validateNickname(text)
+//            
+//            indicator.isSuccess()
+//            confirmBtn.changeColorByEnabled()
+//            
+//        } catch ValidateService.Errors.isEmpty {
+//            indicator.isEmpty()
+//            confirmBtn.changeColorByDisabled()
+//        } catch ValidateService.Errors.isLowerThanTwo {
+//            indicator.isLowerThanTwoOrOverTen()
+//            confirmBtn.changeColorByDisabled()
+//        } catch ValidateService.Errors.isContainNumber {
+//            indicator.isContainsNumber()
+//            confirmBtn.changeColorByDisabled()
+//        } catch ValidateService.Errors.isContainSpecialLetter {
+//            indicator.isContainsSpecialLetter()
+//            confirmBtn.changeColorByDisabled()
+//        } catch ValidateService.Errors.isOverTen {
+//            indicator.isLowerThanTwoOrOverTen()
+//            confirmBtn.changeColorByDisabled()
+//        } catch {
+//            confirmBtn.changeColorByDisabled()
+//        }
+        vm.nicknameInput.value = textField.text
     }
 }
