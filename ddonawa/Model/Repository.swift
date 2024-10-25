@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-final class Repository<T: Object> {
+struct Repository<T: Object> {
     private let db = try! Realm()
     
     func getRecordById(_ id: String) -> T? {

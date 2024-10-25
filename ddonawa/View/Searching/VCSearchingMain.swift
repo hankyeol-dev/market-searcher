@@ -97,8 +97,8 @@ extension VCSearchingMain: UISearchBarDelegate {
             }
             
             // 이동처리
-            let vc = VCSearchingList()
-            vc.setVCWithData(text)
+            let vc = SearchHomeViewController()
+            vc.setSearchText(text)
             searchBar.text = ""
             view.endEditing(true)
             navigationController?.pushViewController(vc, animated: true)

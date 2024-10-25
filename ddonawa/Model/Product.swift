@@ -15,7 +15,7 @@ struct ProductUserLiked: Codable {
     let link: String
 }
 
-struct Product: Decodable {
+struct Product: Decodable, Hashable {
     let productId: String
     let title: String
     let mallName: String
