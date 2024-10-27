@@ -42,6 +42,8 @@
 		817DAC992C32C76400A342A0 /* ProfileImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817DAC982C32C76400A342A0 /* ProfileImageSelectViewController.swift */; };
 		817DAC9B2C32C79600A342A0 /* ProfileSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817DAC9A2C32C79600A342A0 /* ProfileSelectView.swift */; };
 		818C3D132C202E1400A057EE /* VSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C3D122C202E1400A057EE /* VSettingCell.swift */; };
+		819BB0EC2CCE174600830766 /* NetworkMonitoringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BB0EB2CCE174600830766 /* NetworkMonitoringService.swift */; };
+		819BB0EE2CCE199900830766 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BB0ED2CCE199900830766 /* NetworkErrorView.swift */; };
 		81B3EDC62CCB1671000FDD88 /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3EDC52CCB1671000FDD88 /* SearchHomeViewController.swift */; };
 		81B3EDC92CCB1711000FDD88 /* HorizontalBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3EDC82CCB1711000FDD88 /* HorizontalBannerCell.swift */; };
 		81B3EDCF2CCB180A000FDD88 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3EDCE2CCB180A000FDD88 /* BaseCollectionViewCell.swift */; };
@@ -118,6 +120,8 @@
 		817DAC982C32C76400A342A0 /* ProfileImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectViewController.swift; sourceTree = "<group>"; };
 		817DAC9A2C32C79600A342A0 /* ProfileSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectView.swift; sourceTree = "<group>"; };
 		818C3D122C202E1400A057EE /* VSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSettingCell.swift; sourceTree = "<group>"; };
+		819BB0EB2CCE174600830766 /* NetworkMonitoringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitoringService.swift; sourceTree = "<group>"; };
+		819BB0ED2CCE199900830766 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		81B3EDC52CCB1671000FDD88 /* SearchHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeViewController.swift; sourceTree = "<group>"; };
 		81B3EDC82CCB1711000FDD88 /* HorizontalBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBannerCell.swift; sourceTree = "<group>"; };
 		81B3EDCE2CCB180A000FDD88 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 				81B3EDC72CCB1700000FDD88 /* Cell */,
 				81B3EDC52CCB1671000FDD88 /* SearchHomeViewController.swift */,
 				81B3EDD22CCB2017000FDD88 /* SearchHomeViewModel.swift */,
+				819BB0ED2CCE199900830766 /* NetworkErrorView.swift */,
 			);
 			path = Renew;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				81DBEA1A2C25046E0087016A /* UserService.swift */,
 				81F6D97E2C3139390008041B /* APIService.swift */,
 				817DAC842C3284CB00A342A0 /* ValidateService.swift */,
+				819BB0EB2CCE174600830766 /* NetworkMonitoringService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -582,6 +588,7 @@
 				81D18EC82C1FB95E00480184 /* forSegue.swift in Sources */,
 				817DAC8A2C32855B00A342A0 /* BaseView.swift in Sources */,
 				81F6D97F2C3139390008041B /* APIService.swift in Sources */,
+				819BB0EC2CCE174600830766 /* NetworkMonitoringService.swift in Sources */,
 				81C7E9FC2C2930A200B5A36E /* VLikedCell.swift in Sources */,
 				81DBEA1B2C25046E0087016A /* UserService.swift in Sources */,
 				8123912E2C3D4AAD00F33D2F /* ProfileImageSelectViewModel.swift in Sources */,
@@ -605,6 +612,7 @@
 				815E652B2C1B36E2000185D7 /* Icons.swift in Sources */,
 				817DAC9B2C32C79600A342A0 /* ProfileSelectView.swift in Sources */,
 				81B3EDD32CCB2017000FDD88 /* SearchHomeViewModel.swift in Sources */,
+				819BB0EE2CCE199900830766 /* NetworkErrorView.swift in Sources */,
 				81DC84B22C1BFEC300730BAC /* VUpdateProfileImgButton.swift in Sources */,
 				81DC84C72C1D1C0D00730BAC /* VRecentSearchCell.swift in Sources */,
 				810C20922C202B400001B72F /* VCMain.swift in Sources */,
