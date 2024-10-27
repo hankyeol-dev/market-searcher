@@ -57,7 +57,6 @@ final class SearchHomeViewModel {
    }
    
    deinit {
-      print("SearchHomeViewModel deinit")
       loadTask?.cancel()
    }
 }

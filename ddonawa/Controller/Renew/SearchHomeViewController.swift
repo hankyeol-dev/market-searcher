@@ -182,6 +182,7 @@ extension SearchHomeViewController: UICollectionViewDelegate {
       case .horizontalProductItem:
          if let viewItems = viewModel.collectionViewItems.horizontalAndVerticalViewItems {
             let vc = VCSearchingDetail()
+            print(viewItems[indexPath.row].item)
             vc.setVCWithData(viewItems[indexPath.row].item)
             navigationController?.pushViewController(vc, animated: true)
          }
